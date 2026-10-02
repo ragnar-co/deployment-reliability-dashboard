@@ -32,7 +32,7 @@ flowchart LR
 - รายละเอียดขั้นตอน Coolify อยู่ใน DEPLOYMENT.md (ไม่ซ้ำที่นี่)
 
 ## Scalability Strategy
-ไม่ขยาย (TC-02): instance เดียว, replica = 1, SQLite เขียนครั้งละหนึ่ง transaction การนำเข้าใช้ `BEGIN IMMEDIATE` เพื่อกันการเขียนซ้อน และเปิด `PRAGMA foreign_keys=ON`; ถ้าล็อกไม่ได้ตอบ `IMPORT_BUSY` (API_SPEC.md) ถ้าต้องขยายใน Phase 3 ต้องย้ายฐานข้อมูลก่อน ค่าเป้าหมายประสิทธิภาพและ auto-scaling trigger = `null` (เจ้าของ: Engineering Lead)
+ไม่ขยาย (TC-02): instance เดียว, replica = 1, SQLite เขียนครั้งละหนึ่ง transaction การนำเข้าใช้ `BEGIN IMMEDIATE` เพื่อกันการเขียนซ้อน และเปิด `PRAGMA foreign_keys=ON`; ถ้าล็อกไม่ได้ตอบ `IMPORT_BUSY` (API_SPEC.md) ข้อความ "แสดงครั้งเดียว" หลังอัปโหลดฟอร์มเก็บในหน่วยความจำของ process (ไม่ใช้ cookie) จึงต้องรันเป็น process เดียว; ถ้าเพิ่ม worker/instance ต้องย้ายที่เก็บนี้ก่อน ถ้าต้องขยายใน Phase 3 ต้องย้ายฐานข้อมูลก่อน ค่าเป้าหมายประสิทธิภาพและ auto-scaling trigger = `null` (เจ้าของ: Engineering Lead)
 
 ## Third-party Integrations
 | Integration | บทบาท | สถานะ |

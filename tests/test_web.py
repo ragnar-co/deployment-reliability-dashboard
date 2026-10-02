@@ -38,11 +38,12 @@ def test_upload_form_flow(client):
 
 
 def test_upload_form_rejection_shows_reasons_and_saves_nothing(client, db_count):
-    r = post(client, "a,b\n1,2\n", path="/upload")
-    assert r.status_code == 422 and "nothing was saved" in r.text and "Missing required column" in r.text
+    r = post(client, "a,b\n1,2\n", path="/upload")  # follows the redirect
+    assert r.status_code == 200 and "nothing was saved" in r.text and "Missing required column" in r.text
     assert db_count() == 0
-    dup = post(client, FIXTURE, path="/upload"); again = post(client, FIXTURE, path="/upload")
-    assert again.status_code == 409 and "already imported" in again.text
+    post(client, FIXTURE, path="/upload")
+    again = post(client, FIXTURE, path="/upload")
+    assert "already imported on" in again.text and "Nothing was changed." in again.text
 
 
 # TST-012 / SC-02 / THR-04: every field rendered from the CSV is escaped
@@ -86,7 +87,7 @@ def test_size_limit_boundary(client, db_count, monkeypatch):
 def test_size_limit_via_form_shows_error_box_and_saves_nothing(client, db_count, monkeypatch):
     monkeypatch.setenv("MAX_UPLOAD_BYTES", "100")
     r = post(client, FIXTURE, path="/upload")
-    assert r.status_code == 413 and "nothing was saved" in r.text and "File exceeds the maximum" in r.text
+    assert r.status_code == 200 and "nothing was saved" in r.text and "File exceeds the maximum" in r.text
     assert db_count() == 0
 
 
@@ -143,17 +144,52 @@ def test_supplied_sample_matches_reference_totals(client):
     assert (w["service_name"], w["failures"], w["success_rate"]) == ("release-validator", 316, 79.29)
 
 
-# TST-023 / UI_SPEC: refreshing after a successful upload must not re-submit the file
+# TST-023 / UI_SPEC: after /upload (success OR rejection) the browser lands on a GET page,
+# so refreshing never re-submits the file and a notice is shown only once
+def _upload_no_follow(client, text):
+    return client.post("/upload", files={"file": ("x.csv", text.encode(), "text/csv")}, follow_redirects=False)
+
+
 def test_successful_upload_redirects_so_refresh_is_safe(client, db_count):
-    r = client.post("/upload", files={"file": ("x.csv", FIXTURE.encode(), "text/csv")}, follow_redirects=False)
-    assert r.status_code == 303 and r.headers["location"].startswith("/?imported=10&successful=6&failed=4")
+    r = _upload_no_follow(client, FIXTURE)
+    assert r.status_code == 303 and r.headers["location"].startswith("/?notice=")
     page = client.get(r.headers["location"])
     assert page.status_code == 200 and "Imported 10 deployments (6 successful, 4 failed)." in page.text
-    again = client.get(r.headers["location"])  # what a browser refresh does now
-    assert again.status_code == 200 and "already imported" not in again.text
+    again = client.get(r.headers["location"])  # what a browser refresh does
+    assert again.status_code == 200 and "Imported 10" not in again.text and "already imported" not in again.text
     assert db_count() == 10 and db_count("import_batches") == 1
 
 
-def test_forged_import_message_params_are_ignored_unless_numeric(client):
-    page = client.get("/", params={"imported": "<b>x</b>", "successful": "1", "failed": "1"}).text
-    assert "<b>x</b>" not in page and "Imported" not in page
+def test_rejected_upload_error_is_shown_once_then_clears_on_refresh(client, db_count):
+    r = _upload_no_follow(client, "a,b\n1,2\n")
+    assert r.status_code == 303 and r.headers["location"].startswith("/?notice=")
+    first = client.get(r.headers["location"])
+    assert "Import rejected" in first.text and "Missing required column" in first.text
+    refreshed = client.get(r.headers["location"])
+    assert refreshed.status_code == 200 and "Import rejected" not in refreshed.text
+    assert "No data yet" in refreshed.text and db_count() == 0
+
+
+def test_unknown_or_forged_notice_token_shows_nothing(client):
+    for token in ("nope", "<b>x</b>", "../../etc"):
+        page = client.get("/", params={"notice": token}).text
+        assert "Import rejected" not in page and "Imported" not in page and "<b>x</b>" not in page
+
+
+def test_notice_text_from_csv_is_escaped(client):
+    x = "<script>alert(1)</script>"
+    r = _upload_no_follow(client, f"deployment_id,{x}\n1,2\n")
+    page = client.get(r.headers["location"]).text
+    assert x not in page and "&lt;script&gt;" in page
+
+
+def test_notice_tokens_expire_and_store_is_bounded(monkeypatch):
+    from app import flash
+    t = flash.put(message="hi")
+    assert flash.pop(t)["message"] == "hi" and flash.pop(t) is None  # read once
+    old = flash.put(message="old")
+    monkeypatch.setattr(flash.time, "monotonic", lambda: 10**9)  # far future: expired
+    assert flash.pop(old) is None
+    for _ in range(flash._MAX_ENTRIES + 50):
+        flash.put(message="x")
+    assert len(flash._store) <= flash._MAX_ENTRIES

@@ -6,7 +6,7 @@
 | Method | Path | auth_required | required_role | คำอธิบาย | error_codes |
 |---|---|---|---|---|---|
 | GET | `/` | false | `internal_user` | หน้า Dashboard (HTML); query: `service`, `environment` (P1), `page` (≥ 1, ค่าที่น้อยกว่า 1 หรือไม่ใช่ตัวเลขถือเป็น 1) | – |
-| POST | `/upload` | false | `internal_user` | นำเข้า CSV จากฟอร์ม สำเร็จ = **303 redirect** ไป `/?imported=<rows>&successful=<n>&failed=<n>` (Post/Redirect/Get เพื่อให้กด refresh ไม่ส่งไฟล์ซ้ำ; ค่าใน query ต้องเป็นตัวเลขจึงจะแสดงข้อความ); ผิดพลาด = ตอบ HTML Dashboard ด้วย status ตามตาราง Error Codes พร้อมกล่อง error | `INVALID_FILE`, `VALIDATION_FAILED`, `DUPLICATE_FILE`, `DUPLICATE_DEPLOYMENT`, `FILE_TOO_LARGE`, `IMPORT_BUSY` |
+| POST | `/upload` | false | `internal_user` | นำเข้า CSV จากฟอร์ม **ตอบ 303 redirect เสมอ** (ทั้งสำเร็จและถูกปฏิเสธ) ไป `/?notice=<token>` (Post/Redirect/Get เพื่อให้กด refresh ไม่ส่งไฟล์ซ้ำ) ข้อความผล/เหตุผลที่ถูกปฏิเสธเก็บในหน่วยความจำของแอป อ่านได้ **ครั้งเดียว** (หมดอายุ 120 วินาที, สูงสุด 200 รายการ) ดังนั้น refresh แล้วข้อความหาย token ที่ไม่รู้จักถูกเมิน รหัสข้อผิดพลาดและ HTTP status ตามตาราง Error Codes ใช้กับ `/api/import` เท่านั้น ส่วนหน้าเว็บแสดงข้อความเหตุผลเดียวกัน | `INVALID_FILE`, `VALIDATION_FAILED`, `DUPLICATE_FILE`, `DUPLICATE_DEPLOYMENT`, `FILE_TOO_LARGE`, `IMPORT_BUSY` |
 | POST | `/api/import` | false | `internal_user` | นำเข้า CSV ตอบ JSON | เหมือน `/upload` ยกเว้นไม่มีการเรนเดอร์ HTML |
 | GET | `/api/services` | false | `internal_user` | ตัวเลขรวมและแยกตามบริการ | `INVALID_PARAMETER` |
 | GET | `/api/failures` | false | `internal_user` | รายการ failed deployment | `INVALID_PARAMETER` |

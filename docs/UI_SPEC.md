@@ -6,7 +6,7 @@
 | Route | Page | Method | คำอธิบาย |
 |---|---|---|---|
 | `/` | Dashboard | GET | แสดงส่วน Import, ตัวกรองบริการ, ตัวเลขรวม, ตารางแยกบริการ, รายการ failed deployment; query: `service`, `environment` (P1), `page` (ดู API_SPEC.md) |
-| `/upload` | (ไม่มีหน้าของตัวเอง) | POST | รับฟอร์มอัปโหลด CSV สำเร็จ = redirect 303 ไป `/` พร้อมข้อความผลนำเข้า (กด refresh ได้โดยไม่ส่งไฟล์ซ้ำ); ผิดพลาด = เรนเดอร์ Dashboard พร้อมกล่อง error |
+| `/upload` | (ไม่มีหน้าของตัวเอง) | POST | รับฟอร์มอัปโหลด CSV ตอบ redirect 303 ไป `/?notice=…` เสมอ ไม่ว่าสำเร็จหรือถูกปฏิเสธ หน้า `/` แสดงข้อความผลนำเข้าหรือกล่อง error **หนึ่งครั้ง** แล้วหายเมื่อกด refresh (กด refresh ไม่ส่งไฟล์ซ้ำ) |
 
 ## User Flow Diagrams
 ```mermaid

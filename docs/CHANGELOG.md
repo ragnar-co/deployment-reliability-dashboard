@@ -8,6 +8,10 @@
 - Phase 2: AI investigation draft (extension point ใน ARCHITECTURE.md)
 
 ## Version History
+### 0.1.3 — 2026-10-02
+- Fixed: ไฟล์ถูกปฏิเสธแล้วกด refresh ยังเห็น error เดิมค้าง (หน้าเป็นผลของ POST) — `POST /upload` redirect เสมอ และข้อความแสดงครั้งเดียวผ่านที่เก็บในหน่วยความจำ (ไม่ใช้ cookie) ข้อความผลนำเข้าไม่อยู่ใน URL อีกต่อไป
+- Changed: `/upload` ไม่คืน 4xx อีก (รหัสข้อผิดพลาดใช้กับ `/api/import`)
+
 ### 0.1.2 — 2026-10-02
 - Changed: ปรับ UI — ประโยคนำ "Check <service> first", แถบตัวเลขรวม, แถบสัดส่วนสำเร็จ/ล้มเหลวและอันดับในตารางบริการ, ชุดสีใหม่ (contrast ≥ 4.5:1 ทั้งสองโหมด) (UI_SPEC.md)
 - Changed: ข้อความไฟล์ซ้ำบอกวันที่นำเข้า, batch และจำนวนแถว พร้อม "Nothing was changed."
