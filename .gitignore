@@ -11,3 +11,4 @@ uploads/
 theBeth_deployments_mock.csv
 .env
 FEATURE_CHECKLIST.md
+test_data/*_large.csv
