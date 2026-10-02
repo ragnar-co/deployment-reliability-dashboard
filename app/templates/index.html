@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployment Reliability Dashboard</title>
+<style>
+  :root { --bg:#f6f7f9; --fg:#1b1f24; --muted:#5b6571; --card:#ffffff; --line:#dde1e6;
+          --bad:#c62828; --warn:#9a5b00; --good:#2e7d32; --accent:#1f5fbf; --on-accent:#ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14171a; --fg:#e6e8ea; --muted:#9aa4af; --card:#1d2125; --line:#2e353c;
+            --bad:#ef6b6b; --warn:#f0a93a; --good:#5cc16a; --accent:#6aa3ff; --on-accent:#14171a; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  h1 { font-size:20px; margin:0 0 12px; } h2 { font-size:16px; margin:24px 0 8px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px; }
+  .row { display:flex; gap:12px; flex-wrap:wrap; align-items:end; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:12px; }
+  .kpi b { display:block; font-size:22px; } .kpi span, .muted { color:var(--muted); font-size:12px; }
+  table { width:100%; border-collapse:collapse; background:var(--card); }
+  th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--muted); }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .wrap { overflow-x:auto; border:1px solid var(--line); border-radius:8px; }
+  .msg { padding:8px 12px; border-radius:6px; margin:12px 0; border:1px solid var(--line); }
+  .ok { border-color:var(--good); } .err { border-color:var(--bad); }
+  .bad { color:var(--bad); font-weight:600; } .warn { color:var(--warn); font-weight:600; } .good { color:var(--good); font-weight:600; }
+  select,button,input[type=file] { font:inherit; padding:5px 8px; color:var(--fg); }
+  button { background:var(--accent); color:var(--on-accent); border:0; border-radius:6px; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  a { color:var(--accent); } code { font-size:12px; } [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Deployment Reliability Dashboard</h1>
+
+  <form id="import-form" class="card row" method="post" action="/upload" enctype="multipart/form-data"
+        data-max-bytes="{{ max_bytes }}" data-max-label="{{ max_label }}">
+    <label>Import deployment CSV <span class="muted">(CSV, max {{ max_label }})</span><br>
+      <input id="csv-file" type="file" name="file" accept=".csv,text/csv" required></label>
+    <button id="upload-btn" type="submit">Upload</button>
+  </form>
+  <div id="size-warning" class="msg err" role="alert" hidden></div>
+
+  {% if message %}<div class="msg ok" role="status">{{ message }}</div>{% endif %}
+  {% if problems %}<div class="msg err" role="alert"><b>Import rejected — nothing was saved.</b>
+    <ul>{% for p in problems %}<li>{{ p }}</li>{% endfor %}</ul></div>{% endif %}
+
+  {% if not has_data %}
+    <p class="muted">No data yet. Upload a deployment-history CSV to begin.</p>
+  {% else %}
+  <form class="row" method="get" action="/" style="margin-top:16px">
+    <label>Service<br>
+      <select name="service" onchange="this.form.submit()">
+        <option value="">All services</option>
+        {% for s in services %}<option value="{{ s }}" {{ 'selected' if s == selected }}>{{ s }}</option>{% endfor %}
+      </select></label>
+    <label>Environment<br>
+      <select name="environment" onchange="this.form.submit()">
+        <option value="">All environments</option>
+        {% for e in environments %}<option value="{{ e }}" {{ 'selected' if e == selected_env }}>{{ e }}</option>{% endfor %}
+      </select></label>
+    <noscript><button type="submit">Apply</button></noscript>
+  </form>
+
+  <div class="kpis">
+    <div class="card kpi"><b>{{ "{:,}".format(overall.total) }}</b><span>Deployments</span></div>
+    <div class="card kpi"><b>{{ "{:,}".format(overall.successes) }}</b><span>Successful</span></div>
+    <div class="card kpi"><b>{{ "{:,}".format(overall.failures) }}</b><span>Failed</span></div>
+    <div class="card kpi"><b>{{ ("%.2f"|format(overall.success_rate) ~ "%") if overall.success_rate is not none else "–" }}</b><span>Success rate</span></div>
+    <div class="card kpi"><b>{{ ("%.1f"|format(overall.avg_success_seconds) ~ " s") if overall.avg_success_seconds is not none else "–" }}</b><span>Avg successful duration</span></div>
+  </div>
+
+  <h2>By service <span class="muted">(lowest success rate first — start here)</span></h2>
+  <div class="wrap"><table>
+    <thead><tr><th>Service</th><th class="n">Deployments</th><th class="n">Failed</th>
+      <th class="n">Success rate</th><th class="n">Avg successful duration (s)</th></tr></thead>
+    <tbody>{% for s in by_service %}
+      <tr><td><a href="/?service={{ s.service_name|urlencode }}">{{ s.service_name }}</a></td>
+        <td class="n">{{ s.total }}</td><td class="n">{{ s.failures }}</td>
+        <td class="n {{ 'bad' if s.success_rate < 85 else 'warn' if s.success_rate < 90 else 'good' }}">{{ "%.2f"|format(s.success_rate) }}%</td>
+        <td class="n">{{ ("%.1f"|format(s.avg_success_seconds)) if s.avg_success_seconds is not none else "–" }}</td></tr>
+    {% else %}<tr><td colspan="5" class="muted">No deployments match this filter.</td></tr>{% endfor %}</tbody></table></div>
+
+  <h2>Failed deployments <span class="muted">({{ "{:,}".format(fail_total) }}{% if selected %} for {{ selected }}{% endif %})</span></h2>
+  <div class="wrap"><table>
+    <thead><tr><th>Deployment</th><th>Service</th><th>Env</th><th>Date</th>
+      <th class="n">Duration (s)</th><th>Error message</th></tr></thead>
+    <tbody>{% for f in failures %}
+      <tr><td><code>{{ f.deployment_id }}</code></td><td>{{ f.service_name }}</td><td>{{ f.environment }}</td>
+        <td>{{ f.deployment_date }}</td><td class="n">{{ f.duration_seconds }}</td><td>{{ f.error_message }}</td></tr>
+    {% else %}<tr><td colspan="6" class="muted">No failed deployments on this page.</td></tr>{% endfor %}</tbody></table></div>
+  {% if pages > 1 or page > 1 %}
+  <p>Page {{ page }} / {{ pages }}
+    {% if page > 1 %}<a href="{{ page_url(page - 1) }}">‹ Prev</a>{% endif %}
+    {% if page < pages %}<a href="{{ page_url(page + 1) }}">Next ›</a>{% endif %}</p>
+  {% endif %}
+  {% endif %}
+</main>
+<script>
+(function () {
+  var form = document.getElementById("import-form");
+  var input = document.getElementById("csv-file");
+  var btn = document.getElementById("upload-btn");
+  var warn = document.getElementById("size-warning");
+  var max = parseInt(form.getAttribute("data-max-bytes"), 10);
+  var label = form.getAttribute("data-max-label");
+  input.addEventListener("change", function () {
+    var f = input.files && input.files[0];
+    if (f && f.size > max) {
+      warn.textContent = "File is " + (f.size / 1048576).toFixed(1) + " MB; the maximum is " +
+        label + ". Nothing was uploaded.";
+      warn.hidden = false; btn.disabled = true;
+    } else { warn.hidden = true; btn.disabled = false; }
+  });
+})();
+</script>
+</body>
+</html>

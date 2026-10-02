@@ -1,0 +1,11 @@
+deployment_id,service_name,status,duration_seconds,error_message,deployment_date,environment
+D001,alpha,success,100,,2026-07-01,staging
+D002,alpha,success,200,,2026-07-02,production
+D003,alpha,failed,50,db connection refused,2026-07-03,staging
+D004,beta,failed,10,missing APP_CONFIG,2026-07-04,production
+D005,beta,success,300,,2026-07-05,production
+D006,beta,failed,20,health-check timeout,2026-07-06,production
+D007,gamma,success,60,,2026-07-07,staging
+D008,gamma,success,90,,2026-07-08,staging
+D009,gamma,success,150,,2026-07-09,production
+D010,delta,failed,5,image pull timeout,2026-07-10,staging
