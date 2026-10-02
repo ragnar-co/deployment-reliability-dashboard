@@ -4,14 +4,14 @@
 
 **Deployment Reliability Dashboard** — เว็บแอปภายในที่นำเข้าประวัติ deployment จาก CSV เก็บลง SQLite แล้วแสดงจำนวน deployment, อัตราสำเร็จ และเวลาเฉลี่ยของ deployment ที่สำเร็จแยกตามบริการ พร้อมรายการที่ล้มเหลวและข้อความ error เพื่อชี้ว่าควรเริ่มตรวจบริการใดก่อน
 
-> **สถานะ (2026-10-02):** implement แล้ว T-01…T-10 และ T-13; ทำตาม Quick Start ได้จริง `python -m pytest -q` ผ่าน 72 test; Docker image ตรวจแล้วในเครื่อง (non-root, volume, health) T-12 (Coolify) ผู้ใช้จะ deploy เอง: DEPLOYMENT.md เป็น concept ที่ยังไม่ได้ทดลองบน Coolify
+> **สถานะ (2026-10-02):** implement แล้ว T-01…T-10 และ T-13; ทำตาม Quick Start ได้จริง `python -m pytest -q` มี 72 test (71 ผ่าน + 1 ข้ามเมื่อไม่มีไฟล์ข้อมูลจริง; 72 ผ่านเมื่อมีไฟล์); Docker image ตรวจแล้วในเครื่อง (non-root, volume, health) T-12 (Coolify) ผู้ใช้จะ deploy เอง: DEPLOYMENT.md เป็น concept ที่ยังไม่ได้ทดลองบน Coolify
 
 > **หมายเหตุ:** แดชบอร์ดนี้เป็นเครื่องมือช่วยจัดลำดับว่าควรตรวจบริการใดก่อน **ไม่ใช่การยืนยัน root cause** ข้อมูลใน CSV (วัน, ระยะเวลา, ข้อความ error) ไม่พอจะสรุปสาเหตุที่แท้จริงได้
 
 ## Quick Start
 1. `python3.12 -m venv .venv && source .venv/bin/activate` → ได้ prompt ที่มี `(.venv)`
 2. `pip install -r requirements-dev.txt` → ติดตั้งสำเร็จไม่มี error
-3. `python -m pytest -q` → ทุก test ผ่านด้วย fixture CSV สังเคราะห์ (ไม่ต้องมีไฟล์ตัวอย่างจริง; TST-011 รันเฉพาะเมื่อมีไฟล์จริง)
+3. `python -m pytest -q` → `71 passed, 1 skipped` ด้วย fixture CSV สังเคราะห์ (ไม่ต้องมีไฟล์ตัวอย่างจริง; TST-011 รันเฉพาะเมื่อมีไฟล์จริง)
 4. `uvicorn app.main:app --port 8000` → log แสดง `Uvicorn running on http://127.0.0.1:8000`
 5. เปิด `http://127.0.0.1:8000/health` → ได้ `{"status":"ok"}`
 6. เปิด `http://127.0.0.1:8000/` → เห็น "No data yet" และฟอร์มอัปโหลด
@@ -36,7 +36,7 @@
 - API: `POST /api/import`, `GET /api/services`, `GET /api/failures`, `GET /health` ดู API_SPEC.md
 
 ## Architecture Overview
-โครงสร้างโค้ด: `app/` (main.py routes, importer.py, metrics.py, db.py, flash.py, templates/), `tests/` (72 test, `tests/fixtures/small.csv` สังเคราะห์), `test_data/` (ไฟล์ valid/invalid), `docs/` (20 ไฟล์), `Dockerfile` ·
+โครงสร้างโค้ด: `app/` (main.py routes, importer.py, metrics.py, db.py, flash.py, templates/), `tests/` (72 test: 71 รันได้โดยไม่ต้องมีข้อมูลจริง, `tests/fixtures/small.csv` สังเคราะห์), `test_data/` (ไฟล์ valid/invalid), `docs/` (20 ไฟล์), `Dockerfile` ·
 FastAPI + Jinja2 instance เดียว, SQLite บน persistent volume, deploy ด้วย Dockerfile บน Coolify ดู ARCHITECTURE.md; การ deploy ดู DEPLOYMENT.md; กฎสำหรับ AI agent ที่ลงมือแก้โค้ดอยู่ที่ AGENTS.md (ข้อกำหนดโดยรวมที่ CONSTRAINTS.md); ขั้นตอนปฏิบัติการอยู่ที่ RUNBOOK.md
 
 เอกสารทั้งชุด: PERSONAS → CONSTRAINTS → VPD → SCOPE → PRD → GLOSSARY → ARCHITECTURE → ADR → DATA_MODEL → UI_SPEC → TRACKING_PLAN → SECURITY → API_SPEC → AGENTS → TASKS → DEPLOYMENT → TESTING → CHANGELOG → RUNBOOK → README (ครบ 20 ไฟล์ตาม blueprint)

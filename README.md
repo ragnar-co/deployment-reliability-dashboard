@@ -5,7 +5,7 @@
 > **ข้อควรเข้าใจ:** แดชบอร์ดนี้เป็นเครื่องมือช่วย **จัดลำดับการตรวจสอบ** ไม่ใช่การยืนยัน root cause ข้อมูลใน CSV (วัน, ระยะเวลา, ข้อความ error) ไม่พอจะสรุปสาเหตุที่แท้จริงได้
 
 ## Prerequisites
-- Python 3.12 (ทดสอบบน 3.13 ได้เช่นกัน) และ pip
+- Python 3.12 (ใช้ใน Docker image) และ pip; ขั้นตอนในไฟล์นี้ทดสอบบน Python 3.13 บน clone สะอาด ยังไม่ได้ทดสอบ venv บน 3.12 โดยตรง
 - Docker (เฉพาะถ้าจะรันเป็น container)
 - ไฟล์ CSV ที่มี 7 คอลัมน์: `deployment_id`, `service_name`, `status`, `duration_seconds`, `error_message`, `deployment_date`, `environment`
 
@@ -33,7 +33,7 @@ uvicorn app.main:app --port 8000
 ```bash
 python -m pytest -q
 ```
-ต้องผ่านทั้งหมด (72 test) โดยไม่ต้องมีไฟล์ข้อมูลจริง test ที่ใช้ไฟล์ตัวอย่างจริง `theBeth_deployments_mock.csv` จะถูกข้ามเมื่อไม่มีไฟล์นั้น (ไฟล์ไม่ถูก commit)
+มี 72 test ต้องไม่มีตัวใดล้ม: บนเครื่องที่ไม่มีไฟล์ข้อมูลจริงจะได้ **71 passed, 1 skipped** (test ที่ใช้ `theBeth_deployments_mock.csv` ถูกข้าม เพราะไฟล์นั้นไม่ถูก commit) ถ้ามีไฟล์นั้นวางไว้ที่ root ของโปรเจกต์จะได้ 72 passed
 
 ## Import CSV
 **ผ่านหน้าเว็บ:** เปิดหน้าแรก → **Choose File** → เลือก `.csv` → **Upload** (ครั้งละหนึ่งไฟล์) สำเร็จจะเห็น "Imported N deployments (S successful, F failed)." ครั้งเดียว ถ้ากด refresh ข้อความจะหายและไฟล์ไม่ถูกส่งซ้ำ
