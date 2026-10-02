@@ -36,13 +36,18 @@ flowchart TD
 ## Component Hierarchy
 ```
 Dashboard (/)
-├─ ImportForm            ไฟล์ + ปุ่ม Upload (ข้อความข้างช่องไฟล์: "CSV, max 10 MB")
+├─ Masthead              ชื่อแอป + ImportForm (ไฟล์, ปุ่ม Upload, ข้อความ "CSV, max 10 MB")
 ├─ UploadSizeWarning     เตือนทันทีที่เลือกไฟล์ใหญ่เกินขีดจำกัด (role=alert) และปิดปุ่ม Upload
 ├─ StatusMessage         สำเร็จ (role=status) / ปฏิเสธ (role=alert, รายการเหตุผล)
-├─ ServiceFilter         <select> ทุกบริการ + รายชื่อบริการทั้งหมดที่มีในฐานข้อมูล (ไม่ผูกกับ filter ที่เลือกอยู่; ส่งฟอร์มเมื่อเปลี่ยน)
-├─ KpiCards              Deployments · Successful · Failed · Success rate · Avg successful duration (s)
-├─ ServiceTable          Service · Deployments · Failed · Success rate · Avg successful duration (s)
+├─ Lead                  ประโยคนำ: "Check <service> first" (บริการอันดับ 1 ของมุมมองปัจจุบัน) พร้อม success rate และจำนวนที่ล้มเหลว;
+│                        เมื่อเลือกบริการ = ชื่อบริการ + success rate; ไม่มีข้อมูลตรงตัวกรอง = ข้อความบอกให้ล้างตัวกรอง;
+│                        มีหมายเหตุเสมอว่าเป็นการจัดลำดับ ไม่ได้ระบุสาเหตุ
+├─ Figures               แถบตัวเลขรวม (dl): Deployments · Successful · Failed · Success rate · Avg successful duration (s)
+├─ ServiceFilter         <select> บริการ + environment (รายการเลือกมาจากฐานข้อมูลทั้งหมด ไม่ผูกกับ filter ที่เลือกอยู่; ส่งฟอร์มเมื่อเปลี่ยน)
+├─ ServiceTable          # (อันดับ) · Service · แถบสัดส่วน · Success rate · Failed · Deployments · Avg successful duration (s)
 └─ FailureTable          Deployment · Service · Env · Date · Duration (s) · Error message  (+ Pagination)
+```
+แถบสัดส่วนในแถวของ ServiceTable: ส่วนเขียว = deployment สำเร็จ ส่วนแดง = ล้มเหลว ความยาวตามสัดส่วนจริง เป็นเพียงภาพเสริม (`aria-hidden`) ค่าตัวเลข % พิมพ์อยู่ในเซลล์ถัดไปเสมอ จึงไม่ใช้สีเป็นสัญญาณเดียว แอนิเมชันเดียวของหน้าคือแถบขยายเมื่อโหลด และปิดเมื่อผู้ใช้ตั้ง `prefers-reduced-motion`; หมายเลขอันดับเป็นข้อมูลจริง (ลำดับจาก success rate ต่ำสุด) ไม่ใช่ตัวตกแต่ง
 ```
 
 ## State Management Plan
@@ -55,29 +60,31 @@ Dashboard (/)
 ## Responsive Breakpoints
 | Breakpoint | ความกว้าง | พฤติกรรม |
 |---|---|---|
-| mobile | < 640px | KPI 1–2 คอลัมน์; ตารางเลื่อนแนวนอนในกรอบ |
-| desktop | ≥ 640px | KPI เรียงแถว; ตารางเต็มความกว้าง (max 1100px) |
+| mobile | < 900px | แถบตัวเลข 2 คอลัมน์; ตารางเลื่อนแนวนอนในกรอบของตัวเอง ไม่ให้หน้าล้นจอ |
+| desktop | ≥ 900px | แถบตัวเลข 5 ช่องในแถวเดียว; ตารางเต็มความกว้าง (max 1120px) |
 
 ## Design Tokens
 | Token | Light | Dark | หมายเหตุ |
 |---|---|---|---|
-| `--bg` | #f6f7f9 | #14171a | พื้นหลังหน้า |
-| `--fg` | #1b1f24 | #e6e8ea | ข้อความ |
-| `--muted` | #5b6571 | #9aa4af | ข้อความรอง |
-| `--card` | #ffffff | #1d2125 | พื้นการ์ด/ตาราง |
-| `--bad` | #c62828 | #ef6b6b | success rate < 85% |
-| `--warn` | #9a5b00 | #f0a93a | 85% ≤ rate < 90% |
-| `--good` | #2e7d32 | #5cc16a | rate ≥ 90% |
-| `--accent` | #1f5fbf | #6aa3ff | ลิงก์/พื้นปุ่ม |
-| `--on-accent` | #ffffff | #14171a | ข้อความบนปุ่ม |
+| `--paper` | #F2F4F3 | #101619 | พื้นหลังหน้า |
+| `--surface` | #FFFFFF | #172026 | พื้นตาราง/แถบตัวเลข |
+| `--ink` | #17232B | #E4EAED | ข้อความ |
+| `--muted` | #54626B | #9AA8B1 | ข้อความรอง |
+| `--line` | #D5DCDF | #2A363D | เส้นแบ่ง |
+| `--alarm` | #B3261E | #F28B82 | ส่วนที่ล้มเหลว; success rate < 85% |
+| `--warn` | #8A5200 | #E3A63C | 85% ≤ rate < 90% |
+| `--good` | #1B6E5F | #5CC2AE | ส่วนที่สำเร็จ; rate ≥ 90% |
+| `--accent` | #1F4E79 | #7FB2E5 | ลิงก์/พื้นปุ่ม |
+| `--on-accent` | #FFFFFF | #0E1A22 | ข้อความบนปุ่ม |
+
 **การเตือนขนาดไฟล์ (NFR-03, TC-07):** ฟอร์มมี `data-max-bytes` ตามค่า `MAX_UPLOAD_BYTES` (ไม่ hard-code 10 MB ใน JavaScript) เมื่อผู้ใช้เลือกไฟล์ที่ `file.size` เกิน JavaScript ต้องแสดงข้อความ `File is X.X MB; the maximum is 10 MB. Nothing was uploaded.` ในกล่อง `role="alert"` ทันที และปิดปุ่ม Upload ไว้จนกว่าจะเลือกไฟล์ใหม่ที่ไม่เกิน ถ้า JavaScript ปิดอยู่หรือถูกเลี่ยง server ปฏิเสธด้วย `FILE_TOO_LARGE` 413 และแสดงข้อความ `File exceeds the maximum of 10 MB.` ในกล่อง error ของหน้า (ไม่มีขนาดจริง เพราะ server หยุดอ่านทันที; CP-04 ครอบคลุมเส้นทางนี้) ตัวเลข "10 MB" ในข้อความมาจากค่าตั้งค่า ไม่ใช่ข้อความตายตัว
 
 ข้อความหลักของ UI (เจ้าของ copy): ว่าง = "No data yet. Upload a deployment-history CSV to begin."; สำเร็จ = "Imported N deployments (S successful, F failed)."; ปฏิเสธ = "Import rejected — nothing was saved." ตามด้วยรายการเหตุผล; ค่า null ของ rate/duration แสดง "–"; ปุ่ม "Upload"
 โหมดสว่าง/มืดเลือกตาม `prefers-color-scheme` ของเบราว์เซอร์ (ไม่มีปุ่มสลับ)
 
-Contrast ที่คำนวณแล้ว (ข้อความเทียบกับ `--card`; ข้อความปุ่มเทียบกับ `--accent`): สว่าง bad 5.62, warn 5.43, good 5.13, accent 6.09, muted 5.92, ปุ่ม 6.09; มืด bad 5.39, warn 8.05, good 7.17, accent 6.40, muted 6.40 — ทุกค่า ≥ 4.5:1 (ปุ่มโหมดมืดต้องคำนวณใหม่เมื่อ implement เพราะ `--on-accent` ใหม่ ต้อง ≥ 4.5:1)
+Contrast ที่คำนวณแล้ว (ข้อความเทียบกับ `--surface`; ข้อความปุ่มเทียบกับ `--accent`): สว่าง ink 16.01, muted 6.29, alarm 6.54, warn 6.39, good 6.10, accent 8.66, ปุ่ม 8.66; มืด ink 13.60, muted 6.77, alarm 6.92, warn 7.70, good 7.70, accent 7.40, ปุ่ม 7.90 — ทุกค่า ≥ 4.5:1 (แถบเขียว/แดงเป็นภาพเสริม ไม่ได้อาศัยความต่างระหว่างสองสีเพราะมีตัวเลข %)
 
-Typography: system font stack ขนาดฐาน 14px; ตัวเลขในตารางใช้ tabular-nums
+Typography: system font stack (ไม่โหลดฟอนต์ภายนอก) ขนาดฐาน 15px; หัวข้อนำหนักตัวหนาและชิดแน่น; ตัวเลขใช้ tabular-nums; รหัส deployment และข้อความ error ใช้ monospace เพราะเป็นข้อมูลจาก log จริง
 
 เกณฑ์สี 85% และ 90% เป็น **ค่าสอนสำหรับตัวอย่าง (illustrative)** ไม่ใช่มาตรฐานอุตสาหกรรม ใช้เป็นค่าคงที่ในโค้ดเพียงเพื่อแสดงผลของ MVP โดยไม่กระทบตัวเลข; ค่าที่ calibrate แล้ว = `null` เจ้าของ Engineering Lead (ความเสี่ยงกับ Phase 3 เมื่อเกณฑ์จริงต่างจากนี้)
 

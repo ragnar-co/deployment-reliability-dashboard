@@ -100,11 +100,11 @@ def test_pagination(client):
     assert client.get("/api/failures?limit=100&offset=200").json()["total"] == 250
     assert len(client.get("/api/failures?limit=100&offset=200").json()["items"]) == 50
     p1, p3 = client.get("/").text, client.get("/?page=3").text
-    assert "Page 1 / 3" in p1 and "Next ›" in p1 and "Prev" not in p1
-    assert "Page 3 / 3" in p3 and "Prev" in p3 and "Next" not in p3
+    assert "Page 1 / 3" in p1 and "Next ›" in p1 and "‹ Prev" not in p1
+    assert "Page 3 / 3" in p3 and "‹ Prev" in p3 and "Next ›" not in p3
     assert client.get("/?page=abc").status_code == 200 and "Page 1 / 3" in client.get("/?page=0").text
     far = client.get("/?page=99")
-    assert far.status_code == 200 and "No failed deployments on this page" in far.text and "Prev" in far.text
+    assert far.status_code == 200 and "No failed deployments on this page" in far.text and "‹ Prev" in far.text
 
 
 @pytest.mark.parametrize("q", ["limit=0", "limit=1001", "limit=x", "offset=-1", "offset=1.5"])
