@@ -5,7 +5,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 
 from fastapi import FastAPI, Request, UploadFile
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 from . import config, db, errors, importer, logging_setup, metrics
@@ -108,14 +108,19 @@ def health():
 
 
 @app.get("/")
-def index(request: Request, service: str = "", environment: str = "", page: str = "1"):
+def index(request: Request, service: str = "", environment: str = "", page: str = "1",
+          imported: str = "", successful: str = "", failed: str = ""):
     try:
         page_no = max(int(page), 1)
     except ValueError:
         page_no = 1
+    message = ""
+    if imported.isdigit() and successful.isdigit() and failed.isdigit():  # set by the post-upload redirect
+        message = (f"Imported {int(imported):,} deployments "
+                   f"({int(successful):,} successful, {int(failed):,} failed).")
     conn = db.connect()
     try:
-        ctx = _dashboard(conn, service or None, environment or None, page_no)
+        ctx = _dashboard(conn, service or None, environment or None, page_no, messages=message)
     finally:
         conn.close()
     return templates.TemplateResponse(request, "index.html", ctx)
@@ -130,9 +135,10 @@ async def upload(request: Request, file: UploadFile | None = None):
             name, content = await _receive(file)
             res = importer.import_csv(conn, name, content)
             log("import_accepted", batch_id=res["batch_id"], rows=res["rows"])
-            ctx = _dashboard(conn, None, None, 1, messages=(
-                f"Imported {res['rows']:,} deployments "
-                f"({res['successful_deployments']:,} successful, {res['failed_deployments']:,} failed)."))
+            # Post/Redirect/Get: refreshing the result page must not re-submit the file
+            return RedirectResponse(
+                f"/?imported={res['rows']}&successful={res['successful_deployments']}"
+                f"&failed={res['failed_deployments']}", status_code=303)
         except AppError as e:
             log("import_rejected", code=e.code, error_count=len(e.errors))
             ctx = _dashboard(conn, None, None, 1, problems=e.errors)

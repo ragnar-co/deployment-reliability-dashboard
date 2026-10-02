@@ -141,3 +141,19 @@ def test_supplied_sample_matches_reference_totals(client):
     assert len(j["services"]) == 24
     w = j["services"][0]
     assert (w["service_name"], w["failures"], w["success_rate"]) == ("release-validator", 316, 79.29)
+
+
+# TST-023 / UI_SPEC: refreshing after a successful upload must not re-submit the file
+def test_successful_upload_redirects_so_refresh_is_safe(client, db_count):
+    r = client.post("/upload", files={"file": ("x.csv", FIXTURE.encode(), "text/csv")}, follow_redirects=False)
+    assert r.status_code == 303 and r.headers["location"].startswith("/?imported=10&successful=6&failed=4")
+    page = client.get(r.headers["location"])
+    assert page.status_code == 200 and "Imported 10 deployments (6 successful, 4 failed)." in page.text
+    again = client.get(r.headers["location"])  # what a browser refresh does now
+    assert again.status_code == 200 and "already imported" not in again.text
+    assert db_count() == 10 and db_count("import_batches") == 1
+
+
+def test_forged_import_message_params_are_ignored_unless_numeric(client):
+    page = client.get("/", params={"imported": "<b>x</b>", "successful": "1", "failed": "1"}).text
+    assert "<b>x</b>" not in page and "Imported" not in page

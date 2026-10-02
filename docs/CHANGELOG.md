@@ -8,6 +8,9 @@
 - Phase 2: AI investigation draft (extension point ใน ARCHITECTURE.md)
 
 ## Version History
+### 0.1.2 — 2026-10-02
+- Fixed: กด refresh หลังอัปโหลดสำเร็จทำให้ส่งไฟล์ซ้ำและขึ้น "This exact file was already imported" — เปลี่ยนเป็น Post/Redirect/Get (`POST /upload` สำเร็จ = 303 ไป `/`)
+
 ### 0.1.1 — 2026-10-02 (`dd49df4`)
 - Changed: ค่าเฉลี่ยระยะเวลาของ deployment ที่สำเร็จแสดงทศนิยม 2 ตำแหน่ง (half-up) — ชุดข้อมูล valid ได้ 325.11 วินาที
 - Added: ผลนำเข้าแสดงจำนวน successful และ failed; API คืน `successful_deployments`

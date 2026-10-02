@@ -35,6 +35,7 @@
 | TST-018 | คอลัมน์เกิน, header ตัวพิมพ์ใหญ่, ชื่อคอลัมน์ซ้ำ → `INVALID_FILE`; BOM + CRLF ถูกรับ; `deployment_id` ซ้ำภายในไฟล์ → 422 `VALIDATION_FAILED` ระบุหมายเลขแถวแบบ 1-based; ลำดับการตรวจตาม API_SPEC | Integration | LC-01, API_SPEC |
 | TST-019 | Container รันเป็น non-root และเขียน `/data` ได้ (ทำมือ/สคริปต์ docker) | System | SC-04, TC-08 |
 | TST-020 | ไฟล์ = 10 MiB พอดีผ่านด่านขนาด; 10 MiB + 1 ไบต์ → `FILE_TOO_LARGE` 413 ทั้ง `/upload` (กล่อง error บนหน้า) และ `/api/import`; ไม่มีข้อมูลบางส่วน; ตั้ง `MAX_UPLOAD_BYTES` ต่ำลงแล้วค่าที่แสดงในข้อความและหน้าเว็บเปลี่ยนตาม | Integration | SC-03, TC-07, NFR-03 |
+| TST-023 | หลังอัปโหลดสำเร็จ `POST /upload` ตอบ 303 ไป `/?imported=…`; GET ซ้ำ (เหมือนกด refresh) ไม่เกิด "already imported" และไม่เกิดข้อมูลซ้ำ; พารามิเตอร์ข้อความที่ไม่ใช่ตัวเลขถูกเมิน | Integration | UI_SPEC, API_SPEC |
 | TST-022 | หน้าเว็บมีข้อมูลขีดจำกัดสำหรับ client (เช่น `data-max-bytes`) ตรงกับ `MAX_UPLOAD_BYTES`; มีองค์ประกอบเตือน `role="alert"` ซ่อนอยู่เมื่อเริ่มต้น และมี fallback ฝั่ง server เมื่อ JavaScript ปิด (ทดสอบผ่าน HTML ส่วนพฤติกรรมเลือกไฟล์ใหญ่ตรวจมือ) | Integration + manual | UI_SPEC, NFR-03 |
 | TST-021 | ตัวกรอง `service` ที่ไม่มีอยู่ = 200 ว่าง; dropdown ยังแสดงบริการทั้งหมดเมื่อเลือกบริการหนึ่ง | Integration | API_SPEC, UI_SPEC |
 

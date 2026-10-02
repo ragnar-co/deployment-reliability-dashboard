@@ -6,7 +6,7 @@
 | Method | Path | auth_required | required_role | คำอธิบาย | error_codes |
 |---|---|---|---|---|---|
 | GET | `/` | false | `internal_user` | หน้า Dashboard (HTML); query: `service`, `environment` (P1), `page` (≥ 1, ค่าที่น้อยกว่า 1 หรือไม่ใช่ตัวเลขถือเป็น 1) | – |
-| POST | `/upload` | false | `internal_user` | นำเข้า CSV จากฟอร์ม ตอบ HTML (Dashboard) สำเร็จ = 200; ผิดพลาด = status ตามตาราง Error Codes พร้อมกล่อง error บนหน้า | `INVALID_FILE`, `VALIDATION_FAILED`, `DUPLICATE_FILE`, `DUPLICATE_DEPLOYMENT`, `FILE_TOO_LARGE`, `IMPORT_BUSY` |
+| POST | `/upload` | false | `internal_user` | นำเข้า CSV จากฟอร์ม สำเร็จ = **303 redirect** ไป `/?imported=<rows>&successful=<n>&failed=<n>` (Post/Redirect/Get เพื่อให้กด refresh ไม่ส่งไฟล์ซ้ำ; ค่าใน query ต้องเป็นตัวเลขจึงจะแสดงข้อความ); ผิดพลาด = ตอบ HTML Dashboard ด้วย status ตามตาราง Error Codes พร้อมกล่อง error | `INVALID_FILE`, `VALIDATION_FAILED`, `DUPLICATE_FILE`, `DUPLICATE_DEPLOYMENT`, `FILE_TOO_LARGE`, `IMPORT_BUSY` |
 | POST | `/api/import` | false | `internal_user` | นำเข้า CSV ตอบ JSON | เหมือน `/upload` ยกเว้นไม่มีการเรนเดอร์ HTML |
 | GET | `/api/services` | false | `internal_user` | ตัวเลขรวมและแยกตามบริการ | `INVALID_PARAMETER` |
 | GET | `/api/failures` | false | `internal_user` | รายการ failed deployment | `INVALID_PARAMETER` |
