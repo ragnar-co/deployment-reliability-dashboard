@@ -34,9 +34,9 @@
 - API: `POST /api/import`, `GET /api/services`, `GET /api/failures`, `GET /health` ดู API_SPEC.md
 
 ## Architecture Overview
-FastAPI + Jinja2 instance เดียว, SQLite บน persistent volume, deploy ด้วย Dockerfile บน Coolify ดู ARCHITECTURE.md; การ deploy ดู DEPLOYMENT.md; กฎสำหรับ AI agent ที่ลงมือ implement (AGENTS.md) ไม่อยู่ในชุดเอกสารขั้นต่ำ จึงยังไม่มีไฟล์ — ใช้ CONSTRAINTS.md เป็นข้อกำหนดแทน
+FastAPI + Jinja2 instance เดียว, SQLite บน persistent volume, deploy ด้วย Dockerfile บน Coolify ดู ARCHITECTURE.md; การ deploy ดู DEPLOYMENT.md; กฎสำหรับ AI agent ที่ลงมือแก้โค้ดอยู่ที่ AGENTS.md (ข้อกำหนดโดยรวมที่ CONSTRAINTS.md); ขั้นตอนปฏิบัติการอยู่ที่ RUNBOOK.md
 
-เอกสารทั้งชุด: PERSONAS → CONSTRAINTS → VPD → SCOPE → PRD → GLOSSARY → ARCHITECTURE → ADR → DATA_MODEL → UI_SPEC → SECURITY → API_SPEC → TASKS → DEPLOYMENT → TESTING → README
+เอกสารทั้งชุด: PERSONAS → CONSTRAINTS → VPD → SCOPE → PRD → GLOSSARY → ARCHITECTURE → ADR → DATA_MODEL → UI_SPEC → TRACKING_PLAN → SECURITY → API_SPEC → AGENTS → TASKS → DEPLOYMENT → TESTING → CHANGELOG → RUNBOOK → README (ครบ 20 ไฟล์ตาม blueprint)
 
 ## Contributing
 - เปลี่ยน data contract หรือสูตรตัวชี้วัดต้องแก้ DATA_MODEL.md/PRD.md ก่อนแก้โค้ด

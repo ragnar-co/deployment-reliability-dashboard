@@ -38,6 +38,7 @@ Reconcile แล้วกับ DATA_MODEL.md, API_SPEC.md และ UI_SPEC.md 
 | Date | Change | By |
 |---|---|---|
 | 2026-10-02 | สร้างเอกสารครั้งแรก; reconcile Term-to-Entity Mapping | Documentation author |
+| 2026-10-02 | เพิ่มเจ้าของ enum `event_name` (TRACKING_PLAN.md) และ `incident_severity` (RUNBOOK.md) เมื่อเอกสารครบ 20 ไฟล์ | Documentation author |
 
 ## Enumeration Registry
 ดัชนีเท่านั้น ห้ามมีค่าของ enum ค่าอยู่ที่เอกสารเจ้าของ
@@ -55,5 +56,5 @@ Reconcile แล้วกับ DATA_MODEL.md, API_SPEC.md และ UI_SPEC.md 
 | deployment_status | DATA_MODEL.md | enum ของโดเมน: ผลลัพธ์ของ deployment |
 | import_batch_status | DATA_MODEL.md | enum ของโดเมน |
 | adr_status | ADR.md | |
-| event_name | TRACKING_PLAN.md | ไม่อยู่ในชุดขั้นต่ำ ไม่สร้าง |
-| incident_severity | RUNBOOK.md | ไม่อยู่ในชุดขั้นต่ำ ไม่สร้าง |
+| event_name | TRACKING_PLAN.md | ไม่มีค่าใน Phase 1 (ไม่มี analytics) |
+| incident_severity | RUNBOOK.md | |

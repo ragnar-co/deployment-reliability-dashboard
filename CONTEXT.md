@@ -99,9 +99,9 @@ filter is service.
 - Use `ddd-web-app`, because the deliverable is an application with upload,
   persistence, UI, and API behavior.
 - Stack: Python 3.12, FastAPI, Jinja2, SQLite3 (decisions recorded in `docs/ADR.md`).
-- Documentation set: the 16 `ddd-web-app` documents in `docs/` (the 14 minimum
-  documents plus `DEPLOYMENT.md` and `ADR.md`). `docs/` is the source of truth
-  where it is more detailed than this file.
+- Documentation set: all 20 `ddd-web-app` documents in `docs/`, in the
+  blueprint's `generation_order`. `docs/` is the source of truth where it is
+  more detailed than this file.
 - Upload limit is 10 MiB with a UI warning before upload.
 - Average successful duration is shown with two decimals (half-up).
 - Use SQLite3 for the MVP. The data volume and expected single-instance use are

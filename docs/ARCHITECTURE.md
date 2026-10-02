@@ -47,7 +47,7 @@ flowchart LR
 - **Tracing:** ไม่มี (บริการเดียว ไม่มี cross-service request)
 - **SLO/SLI:** ยังไม่มีผู้วัดค่า จึงเป็น `null` ทั้งหมด
 
-| SLO | SLI | Target | Traces to | Calibration owner | Alert (คาดหวัง; ยืนยันใน RUNBOOK ซึ่งไม่อยู่ในชุดขั้นต่ำ) |
+| SLO | SLI | Target | Traces to | Calibration owner | Alert (ยืนยันแล้วใน RUNBOOK.md Monitoring and Alerts) |
 |---|---|---|---|---|---|
 | SLO-01 Availability | สัดส่วน health check ที่ตอบ 200 | `null` | NFR-04 | Engineering Lead | health check ล้มเหลวต่อเนื่อง → แจ้งผ่าน Coolify |
 | SLO-02 Dashboard latency | เวลาตอบหน้าแดชบอร์ด | `null` | NFR-01 | Engineering Lead | – |

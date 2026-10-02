@@ -51,7 +51,7 @@
 Contract test ครบทุก operation ใน API_SPEC.md: `GET /` (TST-003, TST-016, TST-017 หน้าเว็บ), `POST /upload` (TST-005/006), `POST /api/import` (TST-001/005/006), `GET /api/services` (TST-002), `GET /api/failures` (TST-004), `GET /health` (TST-009)
 
 ## Coverage Requirements
-- เกณฑ์ coverage รวมที่บล็อก CI เป็นของ `AGENTS.md` ซึ่งไม่อยู่ในชุดเอกสารขั้นต่ำและยังไม่มีค่า: **`null`** (เจ้าของ: Engineering Lead) จึงไม่มีการบล็อก CI ด้วย coverage ใน Phase 1 เอกสารนี้ไม่กำหนดตัวเลขทดแทน
+- เกณฑ์ coverage รวมที่บล็อก CI เป็นของ `AGENTS.md` (Testing Requirements) ซึ่งยังไม่มีค่า: **`null`** (เจ้าของ: Engineering Lead) จึงไม่มีการบล็อก CI ด้วย coverage ใน Phase 1 เอกสารนี้ไม่กำหนดตัวเลขทดแทน
 - วิธีวัด: `pytest --cov=app` (ต้องติดตั้ง `pytest-cov` ถ้าจะวัด) เป็นแนวทาง
 
 | Layer | เป้าหมาย | ผลต่อ CI |

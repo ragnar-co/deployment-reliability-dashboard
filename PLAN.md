@@ -91,8 +91,10 @@ Required indexes are `deployment_id` (unique), `service_name`, `status`, and
 Write the selected documents in their dependency order. The first working set
 is `PERSONAS`, `CONSTRAINTS`, `VPD`, `SCOPE`, `PRD`, `GLOSSARY`,
 `ARCHITECTURE`, `DATA_MODEL`, `UI_SPEC`, `SECURITY`, `API_SPEC`, `TASKS`,
-`TESTING`, and `README`, plus `DEPLOYMENT` (Coolify steps and launch blockers)
-and `ADR`.
+`TESTING`, and `README`, plus `DEPLOYMENT` (Coolify steps and launch blockers).
+All 20 documents of the blueprint were written (adding `ADR`, `TRACKING_PLAN`,
+`AGENTS`, `CHANGELOG`, `RUNBOOK`) so that every cross-reference and enum owner
+resolves.
 
 ## Acceptance Criteria
 

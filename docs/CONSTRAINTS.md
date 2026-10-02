@@ -40,7 +40,7 @@
 | BC-01 | ต้องมี Test หรือ Validation ผ่าน, push ไป repo บริษัท และ deploy ผ่าน Coolify จนเปิดใช้งานได้ ภายใน 120 นาที | บันทึกเวลาเริ่มและ commit SHA ที่ push |
 | BC-02 | ใช้ Claude Code/Codex และ token ที่มีอยู่ ไม่เติมเพิ่ม | ไม่มีการซื้อ/เติม token |
 | BC-03 | เลือก blueprint เพียงหนึ่งตัว: `ddd-web-app` | เอกสารทั้งชุดมาจาก blueprint นี้ |
-| BC-04 | เอกสารขั้นต่ำต้องครบตามชุด 16 ไฟล์ที่ README.md ระบุ (ชุดขั้นต่ำของ `ddd-web-app` สำหรับงานนี้ + ADR.md) | ตรวจรายการไฟล์ใน `docs/` |
+| BC-04 | เอกสารขั้นต่ำต้องครบครบทั้ง 20 ไฟล์ตาม `meta.generation_order` ของ `ddd-web-app` ที่ README.md ระบุ | ตรวจรายการไฟล์ใน `docs/` |
 | BC-05 | Bonus AI workflow ต้องไม่ทำให้ MVP ล่าช้า ถือเป็น extension point เท่านั้น | SCOPE ระบุ out of scope พร้อม phase |
 
 ## Integration Constraints
