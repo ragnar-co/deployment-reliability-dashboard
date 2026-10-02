@@ -4,7 +4,7 @@
 
 **Deployment Reliability Dashboard** — เว็บแอปภายในที่นำเข้าประวัติ deployment จาก CSV เก็บลง SQLite แล้วแสดงจำนวน deployment, อัตราสำเร็จ และเวลาเฉลี่ยของ deployment ที่สำเร็จแยกตามบริการ พร้อมรายการที่ล้มเหลวและข้อความ error เพื่อชี้ว่าควรเริ่มตรวจบริการใดก่อน
 
-> **สถานะ (2026-10-02):** implement แล้ว T-01…T-10 และ T-13; ทำตาม Quick Start ได้จริง `python -m pytest -q` ผ่าน 65 test; Docker image ตรวจแล้ว (non-root, volume, health) T-11 (push) และ T-12 (Coolify) รอ Launch Blockers ใน DEPLOYMENT.md
+> **สถานะ (2026-10-02):** implement แล้ว T-01…T-10 และ T-13; ทำตาม Quick Start ได้จริง `python -m pytest -q` ผ่าน 65 test; Docker image ตรวจแล้ว (non-root, volume, health) T-12 (Coolify) ผู้ใช้จะ deploy เอง: DEPLOYMENT.md เป็น concept ที่ยังไม่ได้ทดลองบน Coolify
 
 > **หมายเหตุ:** แดชบอร์ดนี้เป็นเครื่องมือช่วยจัดลำดับว่าควรตรวจบริการใดก่อน **ไม่ใช่การยืนยัน root cause** ข้อมูลใน CSV (วัน, ระยะเวลา, ข้อความ error) ไม่พอจะสรุปสาเหตุที่แท้จริงได้
 

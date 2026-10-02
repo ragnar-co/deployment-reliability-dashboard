@@ -1,5 +1,7 @@
 # DEPLOYMENT — Deployment Reliability Dashboard
 
+> **สถานะ: Concept (ยังไม่ได้ deploy บน Coolify)** ผู้ใช้จะ deploy เอง (2026-10-02) เอกสารนี้จึงเป็นแผนที่ออกแบบไว้ล่วงหน้า ส่วนที่ตรวจแล้วจริงมีเฉพาะการรัน Docker image ในเครื่อง (non-root, volume, health, ข้อมูลอยู่หลัง restart) ขั้นตอนบน Coolify ยังไม่เคยทดลอง ต้องยืนยันตอน deploy จริง ดู "Concept: Coolify" ด้านล่าง
+
 ไม่มี credential, URL ภายใน หรือชื่อบริษัทในเอกสารนี้: ใช้ placeholder `<COMPANY_REPO_URL>`, `<COOLIFY_HOST>`
 
 ## Environment Setup
@@ -15,6 +17,31 @@
 - ผู้ใช้ non-root ชื่อ `app`; สร้าง `/data` และ `chown app` ใน image
 - bind `0.0.0.0:8000`; `HEALTHCHECK` เรียก `GET /health` ด้วย Python stdlib (ไม่เพิ่ม `curl`)
 - **ข้อควรระวังสิทธิ์ volume:** volume ที่ Coolify mount อาจเป็นของ root ทำให้ user `app` เขียน `/data` ไม่ได้ ถ้า `/health` ผ่านแต่การนำเข้าล้มเหลวด้วย error เขียนไฟล์ ให้ตั้งสิทธิ์ของ mount ให้ user `app` เขียนได้ (TST-019)
+
+### Concept: Coolify (ยังไม่ได้ทดลอง)
+```mermaid
+flowchart LR
+  Dev[นักพัฒนา] -->|git push main| GH[GitHub repo]
+  GH -->|Git source| CO[Coolify: build จาก Dockerfile]
+  CO --> C[Container 1 ตัว :8000]
+  V[(Persistent Storage /data)] --- C
+  U[ผู้ใช้ภายใน] -->|HTTPS ผ่าน proxy ของ Coolify| C
+  CO -.->|health check /health| C
+```
+
+| ตั้งค่าใน Coolify | ค่าที่วางแผน | สถานะการยืนยัน |
+|---|---|---|
+| Source | repo + branch `main` | ยังไม่ยืนยัน (ต้องมีสิทธิ์อ่าน repo) |
+| Build pack | Dockerfile (root) | Dockerfile build ผ่านในเครื่อง |
+| Port | 8000 | ยืนยันในเครื่อง |
+| Persistent Storage | mount ที่ `/data` | ยืนยันด้วย Docker volume ในเครื่อง; บน Coolify ยังไม่ยืนยัน และต้องดูสิทธิ์เขียนของ user `app` |
+| Health check | path `/health` | ยืนยันในเครื่อง (`healthy`) |
+| Replica | 1 | – |
+| การเข้าถึง | เฉพาะเครือข่ายภายใน | ยังไม่ยืนยัน (LB-3) |
+| Domain / TLS | `<COOLIFY_HOST>` | ยังไม่ยืนยัน |
+| `MAX_UPLOAD_BYTES` | ค่าเริ่มต้น 10 MiB ไม่ต้องตั้ง | proxy ของ Coolify ต้องไม่จำกัดต่ำกว่านี้ (LB-4) |
+
+**สิ่งที่ต้องพิสูจน์ตอน deploy จริง** (ตรงกับ TESTING.md E2E-06 และ CP-06): `/health` = 200 บน URL ของ Coolify → อัปโหลด CSV → redeploy → ตัวเลขเดิมยังอยู่ → ลองอัปโหลดไฟล์ >10 MB แล้วเห็นข้อความของแอป ไม่ใช่ error ของ proxy
 
 ### Launch Blockers
 ต้องปิดครบก่อนถือว่า T-12 เสร็จ

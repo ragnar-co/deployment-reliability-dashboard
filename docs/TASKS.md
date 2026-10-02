@@ -19,11 +19,11 @@
 | T-08 | Test ตาม TESTING.md รวมการตรวจกับค่าอ้างอิงของไฟล์ตัวอย่าง | F-08 | done |
 | T-09 | Dockerfile (non-root, volume, health check) | F-09 | done |
 | T-10 | README และ smoke test จากขั้นตอนที่เขียน | F-08 | done |
-| T-11 | Push ไป `<COMPANY_REPO_URL>` | F-09 | blocked |
+| T-11 | Push ไป `<COMPANY_REPO_URL>` (push แล้วที่ repo ที่ผู้ใช้ระบุ; ถ้าต้องส่ง repo ของบริษัทต้องเปลี่ยน remote) | F-09 | done |
 | T-12 | Deploy บน Coolify ตาม DEPLOYMENT.md | F-09 | blocked |
 | T-13 | (P1) ตัวกรอง environment | F-10 | done |
 
-T-11 และ T-12 `blocked` จนกว่าผู้ใช้ให้ repo URL/สิทธิ์ และ Coolify พร้อม (SCOPE.md External Dependencies)
+T-12 `blocked`: ผู้ใช้ deploy บน Coolify เอง (2026-10-02) เอกสารเป็น concept ไว้ก่อน (DEPLOYMENT.md) ส่วน T-11 push เสร็จแล้ว (SCOPE.md External Dependencies)
 
 ## Task Sequence and Dependencies
 | ID | depends_on[] |

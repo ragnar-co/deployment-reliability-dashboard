@@ -3,7 +3,7 @@
 รูปแบบตาม Keep a Changelog; เวอร์ชันยังเป็น 0.x (ก่อน production hardening)
 
 ## Unreleased
-- Deploy บน Coolify (TASKS.md T-12) — รอ Launch Blockers ใน DEPLOYMENT.md
+- Deploy บน Coolify (TASKS.md T-12) — ผู้ใช้จะ deploy เอง; DEPLOYMENT.md เป็น concept ที่ยังไม่ได้ทดลอง
 - Push ไป repository ของบริษัท (T-11) — ปัจจุบัน push ไปที่ repository ที่ผู้ใช้ระบุแล้ว (ดู `DELIVERY.md` ที่ root)
 - Phase 2: AI investigation draft (extension point ใน ARCHITECTURE.md)
 
