@@ -9,6 +9,7 @@
 
 ## Version History
 ### 0.1.2 — 2026-10-02
+- Changed: ข้อความไฟล์ซ้ำบอกวันที่นำเข้า, batch และจำนวนแถว พร้อม "Nothing was changed."
 - Fixed: กด refresh หลังอัปโหลดสำเร็จทำให้ส่งไฟล์ซ้ำและขึ้น "This exact file was already imported" — เปลี่ยนเป็น Post/Redirect/Get (`POST /upload` สำเร็จ = 303 ไป `/`)
 
 ### 0.1.1 — 2026-10-02 (`dd49df4`)

@@ -111,12 +111,19 @@ def validate(reader, header: list[str]) -> list[dict]:
     return rows
 
 
+def _already_imported(batch) -> str:
+    return (f"This file was already imported on {batch['imported_at'][:10]} "
+            f"(batch #{batch['id']}, {batch['row_count']:,} deployments). Nothing was changed.")
+
+
 def import_csv(conn: sqlite3.Connection, filename: str, content: bytes) -> dict:
     """Order of checks follows API_SPEC.md; stops at the first failing step."""
     reader, header = _open(content)                                        # INVALID_FILE
     sha = hashlib.sha256(content).hexdigest()
-    if conn.execute("SELECT 1 FROM import_batches WHERE sha256=?", (sha,)).fetchone():
-        raise AppError(errors.DUPLICATE_FILE, ["This exact file was already imported"])
+    prior = conn.execute("SELECT id, imported_at, row_count FROM import_batches WHERE sha256=?",
+                         (sha,)).fetchone()
+    if prior:
+        raise AppError(errors.DUPLICATE_FILE, [_already_imported(prior)])
     rows = validate(reader, header)                                        # VALIDATION_FAILED
 
     try:
@@ -144,7 +151,9 @@ def import_csv(conn: sqlite3.Connection, filename: str, content: bytes) -> dict:
                 (filename, sha, datetime.now(timezone.utc).isoformat(timespec="seconds"),
                  len(rows), len(rows) - failed, failed, IMPORTED))
         except sqlite3.IntegrityError:  # same file imported concurrently
-            raise AppError(errors.DUPLICATE_FILE, ["This exact file was already imported"])
+            prior = conn.execute("SELECT id, imported_at, row_count FROM import_batches WHERE sha256=?",
+                                 (sha,)).fetchone()
+            raise AppError(errors.DUPLICATE_FILE, [_already_imported(prior)])
         batch_id = cur.lastrowid
         conn.executemany(
             "INSERT INTO deployments(deployment_id,service_name,status,duration_seconds,"

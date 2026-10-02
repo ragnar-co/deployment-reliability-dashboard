@@ -95,7 +95,7 @@ Response 200: `status` (string, `ok`, ไม่ nullable, required) เมื่
 |---|---|---|
 | `INVALID_FILE` | 422 | ไม่ใช่ UTF-8, คอลัมน์ขาด หรือไม่มีแถวข้อมูล |
 | `VALIDATION_FAILED` | 422 | แถวใดแถวหนึ่งผิดกติกา (status/วันที่/duration/error_message) |
-| `DUPLICATE_FILE` | 409 | checksum SHA-256 ตรงกับ batch ที่เคยนำเข้า |
+| `DUPLICATE_FILE` | 409 | checksum SHA-256 ตรงกับ batch ที่เคยนำเข้า ข้อความ: `This file was already imported on <YYYY-MM-DD> (batch #<id>, <rows> deployments). Nothing was changed.` เพื่อบอกผู้ใช้ว่าข้อมูลอยู่ครบแล้วและไม่ต้องทำอะไร |
 | `DUPLICATE_DEPLOYMENT` | 409 | `deployment_id` มีอยู่แล้ว หรือซ้ำกันในไฟล์ |
 | `FILE_TOO_LARGE` | 413 | ไฟล์ใหญ่กว่า `MAX_UPLOAD_BYTES` (ค่าเริ่มต้น 10 MiB (10,485,760 ไบต์), TC-07) แอปต้องหยุดอ่านเมื่อเกินขีดจำกัด ไม่ต้องรับไฟล์ทั้งก้อนเข้าหน่วยความจำ ข้อความจาก server: `File exceeds the maximum of 10 MB.` (server หยุดอ่านเมื่อเกิน จึงไม่ทราบขนาดจริง; ข้อความที่มีขนาดจริง `File is X.X MB; ...` แสดงโดย client ตาม UI_SPEC.md) |
 | `INVALID_PARAMETER` | 422 | `limit`/`offset`/`page` ไม่ถูกต้องบน `/api/*` |

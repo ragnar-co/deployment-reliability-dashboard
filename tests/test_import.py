@@ -86,6 +86,9 @@ def test_exact_repeat_upload_detected(client, db_count):
     assert post(client, FIXTURE).status_code == 200
     r = post(client, FIXTURE)
     assert r.status_code == 409 and r.json()["code"] == "DUPLICATE_FILE"
+    msg = r.json()["errors"][0]  # tells the user the data is already there and nothing changed
+    assert "already imported on" in msg and "batch #1" in msg and "10 deployments" in msg
+    assert msg.endswith("Nothing was changed.") and msg.split(" on ")[1][:4] == "2026"
     assert db_count() == 10 and db_count("import_batches") == 1
 
 

@@ -20,7 +20,7 @@
 | TST-003 | ตัวกรองบริการเปลี่ยนตัวเลขและรายการ | Integration | FR-07, AC-06 |
 | TST-004 | รายการล้มเหลวเรียงใหม่สุดก่อนและมี error ต้นฉบับ | Integration | FR-08, AC-07 |
 | TST-005 | ปฏิเสธ (หลายแบบในไฟล์เดียวหลายไฟล์): คอลัมน์ขาด / status ไม่ถูกต้อง / วันที่ไม่ถูกต้อง / duration ≤ 0 / `deployment_id` ซ้ำในไฟล์ / error_message ไม่สอดคล้อง / ไฟล์ว่าง → ไม่มีข้อมูลบางส่วน | Integration | FR-02, FR-03, AC-02 |
-| TST-006 | อัปโหลดไฟล์เดิมซ้ำ → `DUPLICATE_FILE` 409 | Integration | FR-04, AC-03 |
+| TST-006 | อัปโหลดไฟล์เดิมซ้ำ → `DUPLICATE_FILE` 409 พร้อมข้อความที่ระบุวันที่/batch/จำนวนแถวและ "Nothing was changed." | Integration | FR-04, AC-03 |
 | TST-007 | ไฟล์ใหม่ที่มี `deployment_id` เดิม → `DUPLICATE_DEPLOYMENT` 409 และไม่เหลือแถวใหม่ (rollback) | Integration | FR-04, AC-03 |
 | TST-008 | ไม่มีโค้ดอ่าน CSV เพื่อคำนวณตัวเลขหลังนำเข้า: ลบไฟล์ CSV แล้วตัวเลขยังคืนค่าได้ | Integration | FR-09, AC-08 |
 | TST-009 | `GET /health` = 200 | Contract | FR-10, AC-09 |
