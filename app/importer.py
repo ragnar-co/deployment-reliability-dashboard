@@ -156,4 +156,5 @@ def import_csv(conn: sqlite3.Connection, filename: str, content: bytes) -> dict:
     except BaseException:
         conn.execute("ROLLBACK")
         raise
-    return {"batch_id": batch_id, "rows": len(rows), "failed_deployments": failed}
+    return {"batch_id": batch_id, "rows": len(rows),
+            "successful_deployments": len(rows) - failed, "failed_deployments": failed}

@@ -27,7 +27,7 @@ def test_empty_state(client):
 # E2E-01..04 over the HTML form
 def test_upload_form_flow(client):
     r = post(client, FIXTURE, path="/upload")
-    assert r.status_code == 200 and "Imported 10 deployments (4 failed)." in r.text
+    assert r.status_code == 200 and "Imported 10 deployments (6 successful, 4 failed)." in r.text
     page = client.get("/?service=alpha").text
     assert "db connection refused" in page and "missing APP_CONFIG" not in page
     # all services stay selectable while one is selected (TST-021)

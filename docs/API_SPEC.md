@@ -44,6 +44,7 @@
 |---|---|---|---|---|
 | `batch_id` | integer | ≥ 1 | false | true |
 | `rows` | integer | ≥ 1 | false | true |
+| `successful_deployments` | integer | 0…rows (จำนวนแถวที่ `status = success`) | false | true |
 | `failed_deployments` | integer | 0…rows (จำนวนแถวที่ `status = failed` ไม่ใช่จำนวนการนำเข้าที่ล้มเหลว) | false | true |
 
 ### Error Response (ทุก endpoint JSON)
@@ -63,7 +64,7 @@ Query: `service` (string, optional, ว่าง = ทุกบริการ),
 | `overall.successes` | integer | ≥ 0 | false | true |
 | `overall.failures` | integer | ≥ 0 | false | true |
 | `overall.success_rate` | number | 0–100 ปัด 2 ตำแหน่ง | true (เมื่อ total = 0) | true |
-| `overall.avg_success_seconds` | number | > 0 ปัด 1 ตำแหน่ง | true (เมื่อไม่มี success) | true |
+| `overall.avg_success_seconds` | number | > 0 ปัด 2 ตำแหน่ง (half-up) | true (เมื่อไม่มี success) | true |
 | `services[]` | array of object | ฟิลด์: `service_name`, `total`, `successes`, `failures`, `success_rate`, `avg_success_seconds` (ชนิดเดียวกับ overall) เรียงจาก `success_rate` ต่ำสุด | false | true |
 
 ### `GET /api/failures`

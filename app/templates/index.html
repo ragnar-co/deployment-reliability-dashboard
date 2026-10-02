@@ -70,7 +70,7 @@
     <div class="card kpi"><b>{{ "{:,}".format(overall.successes) }}</b><span>Successful</span></div>
     <div class="card kpi"><b>{{ "{:,}".format(overall.failures) }}</b><span>Failed</span></div>
     <div class="card kpi"><b>{{ ("%.2f"|format(overall.success_rate) ~ "%") if overall.success_rate is not none else "–" }}</b><span>Success rate</span></div>
-    <div class="card kpi"><b>{{ ("%.1f"|format(overall.avg_success_seconds) ~ " s") if overall.avg_success_seconds is not none else "–" }}</b><span>Avg successful duration</span></div>
+    <div class="card kpi"><b>{{ ("%.2f"|format(overall.avg_success_seconds) ~ " s") if overall.avg_success_seconds is not none else "–" }}</b><span>Avg successful duration</span></div>
   </div>
 
   <h2>By service <span class="muted">(lowest success rate first — start here)</span></h2>
@@ -81,7 +81,7 @@
       <tr><td><a href="/?service={{ s.service_name|urlencode }}">{{ s.service_name }}</a></td>
         <td class="n">{{ s.total }}</td><td class="n">{{ s.failures }}</td>
         <td class="n {{ 'bad' if s.success_rate < 85 else 'warn' if s.success_rate < 90 else 'good' }}">{{ "%.2f"|format(s.success_rate) }}%</td>
-        <td class="n">{{ ("%.1f"|format(s.avg_success_seconds)) if s.avg_success_seconds is not none else "–" }}</td></tr>
+        <td class="n">{{ ("%.2f"|format(s.avg_success_seconds)) if s.avg_success_seconds is not none else "–" }}</td></tr>
     {% else %}<tr><td colspan="5" class="muted">No deployments match this filter.</td></tr>{% endfor %}</tbody></table></div>
 
   <h2>Failed deployments <span class="muted">({{ "{:,}".format(fail_total) }}{% if selected %} for {{ selected }}{% endif %})</span></h2>

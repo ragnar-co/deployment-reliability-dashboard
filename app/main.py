@@ -131,7 +131,8 @@ async def upload(request: Request, file: UploadFile | None = None):
             res = importer.import_csv(conn, name, content)
             log("import_accepted", batch_id=res["batch_id"], rows=res["rows"])
             ctx = _dashboard(conn, None, None, 1, messages=(
-                f"Imported {res['rows']:,} deployments ({res['failed_deployments']:,} failed)."))
+                f"Imported {res['rows']:,} deployments "
+                f"({res['successful_deployments']:,} successful, {res['failed_deployments']:,} failed)."))
         except AppError as e:
             log("import_rejected", code=e.code, error_count=len(e.errors))
             ctx = _dashboard(conn, None, None, 1, problems=e.errors)

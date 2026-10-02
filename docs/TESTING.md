@@ -61,7 +61,8 @@ Contract test ครบทุก operation ใน API_SPEC.md: `GET /` (TST-003,
 | E2E | ครอบคลุม CP-ID ทั้ง 6 ข้อ | guidance (ตรวจโดย review ก่อน push; ไม่มี CI อัตโนมัติ) |
 
 ### Verification Log (2026-10-02)
-- `python -m pytest -q`: 65 passed (รวม TST-011 กับไฟล์ตัวอย่างจริง: 36,527 แถว, 92.1%, 187.8 วินาที, 24 บริการ, `release-validator` 79.29%)
+- `python -m pytest -q`: 67 passed (รวม TST-011 กับไฟล์ตัวอย่างจริง: 36,527 แถว, 92.10%, 187.80 วินาที, 24 บริการ, `release-validator` 79.29%)
+- ไฟล์ `test_data/deployments_valid.csv` ให้ 851 success / 149 failed / 85.10% / 325.11 วินาที และ `deployments_invalid.csv` ถูกปฏิเสธโดยไม่มีข้อมูลค้าง (test_checklist_data.py)
 - TST-019 (ทำมือ): image build ได้; `id -un` = `app`; นำเข้าไฟล์ตัวอย่างลง `/data` ได้; restart คอนเทนเนอร์แล้วยังมี 36,527 แถว; Docker health = `healthy` (นี่คือการจำลอง CP-06 ด้วย Docker volume ในเครื่อง ไม่ใช่บน Coolify E2E-06 ยังต้องทำบน Coolify)
 - TST-022 ส่วนพฤติกรรมเลือกไฟล์ใหญ่ในเบราว์เซอร์: **ยังไม่ได้ตรวจ**
 

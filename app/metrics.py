@@ -25,7 +25,7 @@ def _rate(successes: int, total: int):
 def _avg(duration_sum, count):
     if not count:
         return None
-    return float((Decimal(duration_sum) / Decimal(count)).quantize(Decimal("0.1"), ROUND_HALF_UP))
+    return float((Decimal(duration_sum) / Decimal(count)).quantize(Decimal("0.01"), ROUND_HALF_UP))
 
 
 def list_services(conn: sqlite3.Connection) -> list[str]:

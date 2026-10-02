@@ -1,0 +1,1001 @@
+deployment_id,service_name,status,duration_seconds,error_message,deployment_date,environment
++BAD-000001,customer-portal,success,0,,2026-10-01,staging
++BAD-000002,analytics-api,failed,159,,2026-10-02,staging
++BAD-000003,report-worker,success,206,Unexpected error message,2026-10-03,production
++BAD-000004,workflow-engine,success,253,,2026-13-40,staging
++BAD-000005,integration-gateway,success,300,,2026-10-05,staging
++BAD-000006,release-validator,success,347,,2026-10-06,production
++BAD-000007,log-ingestion,success,394,,2026-10-07,staging
++BAD-000008,auth-service,failed,441,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000009,customer-portal,success,488,,2026-10-09,production
++BAD-000010,analytics-api,success,535,,2026-10-10,staging
++BAD-000011,report-worker,success,582,,2026-10-11,staging
++BAD-000012,workflow-engine,success,109,,2026-10-12,production
++BAD-000013,integration-gateway,success,156,,2026-10-13,staging
++BAD-000014,release-validator,success,203,,2026-10-14,staging
++BAD-000015,log-ingestion,success,250,,2026-10-15,production
++BAD-000016,auth-service,failed,297,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000017,customer-portal,success,344,,2026-10-17,staging
++BAD-000018,analytics-api,success,391,,2026-10-18,production
++BAD-000019,report-worker,success,438,,2026-10-19,staging
++BAD-000020,workflow-engine,success,485,,2026-10-20,staging
++BAD-000021,integration-gateway,success,532,,2026-10-21,production
++BAD-000022,release-validator,success,579,,2026-10-22,staging
++BAD-000023,log-ingestion,success,106,,2026-10-23,staging
++BAD-000024,auth-service,failed,153,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000025,customer-portal,success,200,,2026-10-25,staging
++BAD-000026,analytics-api,success,247,,2026-10-26,staging
++BAD-000027,report-worker,success,294,,2026-10-27,production
++BAD-000028,workflow-engine,success,341,,2026-10-28,staging
++BAD-000029,integration-gateway,success,388,,2026-10-29,staging
++BAD-000030,release-validator,success,435,,2026-10-30,production
++BAD-000031,log-ingestion,success,482,,2026-10-01,staging
++BAD-000032,auth-service,failed,529,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000033,customer-portal,success,576,,2026-10-03,production
++BAD-000034,analytics-api,success,103,,2026-10-04,staging
++BAD-000035,report-worker,success,150,,2026-10-05,staging
++BAD-000036,workflow-engine,success,197,,2026-10-06,production
++BAD-000037,integration-gateway,failed,244,Database connection refused,2026-10-07,staging
++BAD-000038,release-validator,success,291,,2026-10-08,staging
++BAD-000039,log-ingestion,success,338,,2026-10-09,production
++BAD-000040,auth-service,failed,385,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000041,customer-portal,success,432,,2026-10-11,staging
++BAD-000042,analytics-api,success,479,,2026-10-12,production
++BAD-000043,report-worker,success,526,,2026-10-13,staging
++BAD-000044,workflow-engine,success,573,,2026-10-14,staging
++BAD-000045,integration-gateway,success,100,,2026-10-15,production
++BAD-000046,release-validator,success,147,,2026-10-16,staging
++BAD-000047,log-ingestion,success,194,,2026-10-17,staging
++BAD-000048,auth-service,failed,241,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000049,customer-portal,success,288,,2026-10-19,staging
++BAD-000050,analytics-api,success,335,,2026-10-20,staging
++BAD-000051,report-worker,success,382,,2026-10-21,production
++BAD-000052,workflow-engine,success,429,,2026-10-22,staging
++BAD-000053,integration-gateway,success,476,,2026-10-23,staging
++BAD-000054,release-validator,success,523,,2026-10-24,production
++BAD-000055,log-ingestion,success,570,,2026-10-25,staging
++BAD-000056,auth-service,failed,97,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000057,customer-portal,success,144,,2026-10-27,production
++BAD-000058,analytics-api,success,191,,2026-10-28,staging
++BAD-000059,report-worker,success,238,,2026-10-29,staging
++BAD-000060,workflow-engine,success,285,,2026-10-30,production
++BAD-000061,integration-gateway,success,332,,2026-10-01,staging
++BAD-000062,release-validator,success,379,,2026-10-02,staging
++BAD-000063,log-ingestion,success,426,,2026-10-03,production
++BAD-000064,auth-service,failed,473,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000065,customer-portal,success,520,,2026-10-05,staging
++BAD-000066,analytics-api,success,567,,2026-10-06,production
++BAD-000067,report-worker,success,94,,2026-10-07,staging
++BAD-000068,workflow-engine,success,141,,2026-10-08,staging
++BAD-000069,integration-gateway,success,188,,2026-10-09,production
++BAD-000070,release-validator,success,235,,2026-10-10,staging
++BAD-000071,log-ingestion,success,282,,2026-10-11,staging
++BAD-000072,auth-service,failed,329,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000073,customer-portal,success,376,,2026-10-13,staging
++BAD-000074,analytics-api,failed,423,Migration lock timeout,2026-10-14,staging
++BAD-000075,report-worker,success,470,,2026-10-15,production
++BAD-000076,workflow-engine,success,517,,2026-10-16,staging
++BAD-000077,integration-gateway,success,564,,2026-10-17,staging
++BAD-000078,release-validator,success,91,,2026-10-18,production
++BAD-000079,log-ingestion,success,138,,2026-10-19,staging
++BAD-000080,auth-service,failed,185,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000081,customer-portal,success,232,,2026-10-21,production
++BAD-000082,analytics-api,success,279,,2026-10-22,staging
++BAD-000083,report-worker,success,326,,2026-10-23,staging
++BAD-000084,workflow-engine,success,373,,2026-10-24,production
++BAD-000085,integration-gateway,success,420,,2026-10-25,staging
++BAD-000086,release-validator,success,467,,2026-10-26,staging
++BAD-000087,log-ingestion,success,514,,2026-10-27,production
++BAD-000088,auth-service,failed,561,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000089,customer-portal,success,88,,2026-10-29,staging
++BAD-000090,analytics-api,success,135,,2026-10-30,production
++BAD-000091,report-worker,success,182,,2026-10-01,staging
++BAD-000092,workflow-engine,success,229,,2026-10-02,staging
++BAD-000093,integration-gateway,success,276,,2026-10-03,production
++BAD-000094,release-validator,success,323,,2026-10-04,staging
++BAD-000095,log-ingestion,success,370,,2026-10-05,staging
++BAD-000096,auth-service,failed,417,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000097,customer-portal,success,464,,2026-10-07,staging
++BAD-000098,analytics-api,success,511,,2026-10-08,staging
++BAD-000099,report-worker,success,558,,2026-10-09,production
++BAD-000100,workflow-engine,unknown,85,,2026-10-10,staging
++BAD-000101,integration-gateway,success,0,,2026-10-11,staging
++BAD-000102,release-validator,failed,179,,2026-10-12,production
++BAD-000103,log-ingestion,success,226,Unexpected error message,2026-10-13,staging
++BAD-000104,auth-service,success,273,,2026-13-40,staging
++BAD-000100,customer-portal,success,320,,2026-10-15,production
++BAD-000106,analytics-api,success,367,,2026-10-16,staging
++BAD-000107,report-worker,success,414,,2026-10-17,staging
++BAD-000108,workflow-engine,success,461,,2026-10-18,production
++BAD-000109,integration-gateway,success,508,,2026-10-19,staging
++BAD-000110,release-validator,success,555,,2026-10-20,staging
++BAD-000111,log-ingestion,failed,82,Readiness probe failed: HTTP 503,2026-10-21,production
++BAD-000112,auth-service,failed,129,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000113,customer-portal,success,176,,2026-10-23,staging
++BAD-000114,analytics-api,success,223,,2026-10-24,production
++BAD-000115,report-worker,success,270,,2026-10-25,staging
++BAD-000116,workflow-engine,success,317,,2026-10-26,staging
++BAD-000117,integration-gateway,success,364,,2026-10-27,production
++BAD-000118,release-validator,success,411,,2026-10-28,staging
++BAD-000119,log-ingestion,success,458,,2026-10-29,staging
++BAD-000120,auth-service,failed,505,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000121,customer-portal,success,552,,2026-10-01,staging
++BAD-000122,analytics-api,success,79,,2026-10-02,staging
++BAD-000123,report-worker,success,126,,2026-10-03,production
++BAD-000124,workflow-engine,success,173,,2026-10-04,staging
++BAD-000125,integration-gateway,success,220,,2026-10-05,staging
++BAD-000126,release-validator,success,267,,2026-10-06,production
++BAD-000127,log-ingestion,success,314,,2026-10-07,staging
++BAD-000128,auth-service,failed,361,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000129,customer-portal,success,408,,2026-10-09,production
++BAD-000130,analytics-api,success,455,,2026-10-10,staging
++BAD-000131,report-worker,success,502,,2026-10-11,staging
++BAD-000132,workflow-engine,success,549,,2026-10-12,production
++BAD-000133,integration-gateway,success,76,,2026-10-13,staging
++BAD-000134,release-validator,success,123,,2026-10-14,staging
++BAD-000135,log-ingestion,success,170,,2026-10-15,production
++BAD-000136,auth-service,failed,217,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000137,customer-portal,success,264,,2026-10-17,staging
++BAD-000138,analytics-api,success,311,,2026-10-18,production
++BAD-000139,report-worker,success,358,,2026-10-19,staging
++BAD-000140,workflow-engine,success,405,,2026-10-20,staging
++BAD-000141,integration-gateway,success,452,,2026-10-21,production
++BAD-000142,release-validator,success,499,,2026-10-22,staging
++BAD-000143,log-ingestion,success,546,,2026-10-23,staging
++BAD-000144,auth-service,failed,73,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000145,customer-portal,success,120,,2026-10-25,staging
++BAD-000146,analytics-api,success,167,,2026-10-26,staging
++BAD-000147,report-worker,success,214,,2026-10-27,production
++BAD-000148,workflow-engine,failed,261,Image pull failed: registry timeout,2026-10-28,staging
++BAD-000149,integration-gateway,success,308,,2026-10-29,staging
++BAD-000150,release-validator,success,355,,2026-10-30,production
++BAD-000151,log-ingestion,success,402,,2026-10-01,staging
++BAD-000152,auth-service,failed,449,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000153,customer-portal,success,496,,2026-10-03,production
++BAD-000154,analytics-api,success,543,,2026-10-04,staging
++BAD-000155,report-worker,success,70,,2026-10-05,staging
++BAD-000156,workflow-engine,success,117,,2026-10-06,production
++BAD-000157,integration-gateway,success,164,,2026-10-07,staging
++BAD-000158,release-validator,success,211,,2026-10-08,staging
++BAD-000159,log-ingestion,success,258,,2026-10-09,production
++BAD-000160,auth-service,failed,305,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000161,customer-portal,success,352,,2026-10-11,staging
++BAD-000162,analytics-api,success,399,,2026-10-12,production
++BAD-000163,report-worker,success,446,,2026-10-13,staging
++BAD-000164,workflow-engine,success,493,,2026-10-14,staging
++BAD-000165,integration-gateway,success,540,,2026-10-15,production
++BAD-000166,release-validator,success,67,,2026-10-16,staging
++BAD-000167,log-ingestion,success,114,,2026-10-17,staging
++BAD-000168,auth-service,failed,161,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000169,customer-portal,success,208,,2026-10-19,staging
++BAD-000170,analytics-api,success,255,,2026-10-20,staging
++BAD-000171,report-worker,success,302,,2026-10-21,production
++BAD-000172,workflow-engine,success,349,,2026-10-22,staging
++BAD-000173,integration-gateway,success,396,,2026-10-23,staging
++BAD-000174,release-validator,success,443,,2026-10-24,production
++BAD-000175,log-ingestion,success,490,,2026-10-25,staging
++BAD-000176,auth-service,failed,537,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000177,customer-portal,success,584,,2026-10-27,production
++BAD-000178,analytics-api,success,111,,2026-10-28,staging
++BAD-000179,report-worker,success,158,,2026-10-29,staging
++BAD-000180,workflow-engine,success,205,,2026-10-30,production
++BAD-000181,integration-gateway,success,252,,2026-10-01,staging
++BAD-000182,release-validator,success,299,,2026-10-02,staging
++BAD-000183,log-ingestion,success,346,,2026-10-03,production
++BAD-000184,auth-service,failed,393,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000185,customer-portal,failed,440,Health check timeout,2026-10-05,staging
++BAD-000186,analytics-api,success,487,,2026-10-06,production
++BAD-000187,report-worker,success,534,,2026-10-07,staging
++BAD-000188,workflow-engine,success,581,,2026-10-08,staging
++BAD-000189,integration-gateway,success,108,,2026-10-09,production
++BAD-000190,release-validator,success,155,,2026-10-10,staging
++BAD-000191,log-ingestion,success,202,,2026-10-11,staging
++BAD-000192,auth-service,failed,249,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000193,customer-portal,success,296,,2026-10-13,staging
++BAD-000194,analytics-api,success,343,,2026-10-14,staging
++BAD-000195,report-worker,success,390,,2026-10-15,production
++BAD-000196,workflow-engine,success,437,,2026-10-16,staging
++BAD-000197,integration-gateway,success,484,,2026-10-17,staging
++BAD-000198,release-validator,success,531,,2026-10-18,production
++BAD-000199,log-ingestion,success,578,,2026-10-19,staging
++BAD-000200,auth-service,unknown,105,,2026-10-20,staging
++BAD-000201,customer-portal,success,0,,2026-10-21,production
++BAD-000202,analytics-api,failed,199,,2026-10-22,staging
++BAD-000203,report-worker,success,246,Unexpected error message,2026-10-23,staging
++BAD-000204,workflow-engine,success,293,,2026-13-40,production
++BAD-000200,integration-gateway,success,340,,2026-10-25,staging
++BAD-000206,release-validator,success,387,,2026-10-26,staging
++BAD-000207,log-ingestion,success,434,,2026-10-27,production
++BAD-000208,auth-service,failed,481,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000209,customer-portal,success,528,,2026-10-29,staging
++BAD-000210,analytics-api,success,575,,2026-10-30,production
++BAD-000211,report-worker,success,102,,2026-10-01,staging
++BAD-000212,workflow-engine,success,149,,2026-10-02,staging
++BAD-000213,integration-gateway,success,196,,2026-10-03,production
++BAD-000214,release-validator,success,243,,2026-10-04,staging
++BAD-000215,log-ingestion,success,290,,2026-10-05,staging
++BAD-000216,auth-service,failed,337,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000217,customer-portal,success,384,,2026-10-07,staging
++BAD-000218,analytics-api,success,431,,2026-10-08,staging
++BAD-000219,report-worker,success,478,,2026-10-09,production
++BAD-000220,workflow-engine,success,525,,2026-10-10,staging
++BAD-000221,integration-gateway,success,572,,2026-10-11,staging
++BAD-000222,release-validator,failed,99,Container exited with code 1,2026-10-12,production
++BAD-000223,log-ingestion,success,146,,2026-10-13,staging
++BAD-000224,auth-service,failed,193,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000225,customer-portal,success,240,,2026-10-15,production
++BAD-000226,analytics-api,success,287,,2026-10-16,staging
++BAD-000227,report-worker,success,334,,2026-10-17,staging
++BAD-000228,workflow-engine,success,381,,2026-10-18,production
++BAD-000229,integration-gateway,success,428,,2026-10-19,staging
++BAD-000230,release-validator,success,475,,2026-10-20,staging
++BAD-000231,log-ingestion,success,522,,2026-10-21,production
++BAD-000232,auth-service,failed,569,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000233,customer-portal,success,96,,2026-10-23,staging
++BAD-000234,analytics-api,success,143,,2026-10-24,production
++BAD-000235,report-worker,success,190,,2026-10-25,staging
++BAD-000236,workflow-engine,success,237,,2026-10-26,staging
++BAD-000237,integration-gateway,success,284,,2026-10-27,production
++BAD-000238,release-validator,success,331,,2026-10-28,staging
++BAD-000239,log-ingestion,success,378,,2026-10-29,staging
++BAD-000240,auth-service,failed,425,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000241,customer-portal,success,472,,2026-10-01,staging
++BAD-000242,analytics-api,success,519,,2026-10-02,staging
++BAD-000243,report-worker,success,566,,2026-10-03,production
++BAD-000244,workflow-engine,success,93,,2026-10-04,staging
++BAD-000245,integration-gateway,success,140,,2026-10-05,staging
++BAD-000246,release-validator,success,187,,2026-10-06,production
++BAD-000247,log-ingestion,success,234,,2026-10-07,staging
++BAD-000248,auth-service,failed,281,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000249,customer-portal,success,328,,2026-10-09,production
++BAD-000250,analytics-api,success,375,,2026-10-10,staging
++BAD-000251,report-worker,success,422,,2026-10-11,staging
++BAD-000252,workflow-engine,success,469,,2026-10-12,production
++BAD-000253,integration-gateway,success,516,,2026-10-13,staging
++BAD-000254,release-validator,success,563,,2026-10-14,staging
++BAD-000255,log-ingestion,success,90,,2026-10-15,production
++BAD-000256,auth-service,failed,137,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000257,customer-portal,success,184,,2026-10-17,staging
++BAD-000258,analytics-api,success,231,,2026-10-18,production
++BAD-000259,report-worker,failed,278,Dependency unavailable: upstream timeout,2026-10-19,staging
++BAD-000260,workflow-engine,success,325,,2026-10-20,staging
++BAD-000261,integration-gateway,success,372,,2026-10-21,production
++BAD-000262,release-validator,success,419,,2026-10-22,staging
++BAD-000263,log-ingestion,success,466,,2026-10-23,staging
++BAD-000264,auth-service,failed,513,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000265,customer-portal,success,560,,2026-10-25,staging
++BAD-000266,analytics-api,success,87,,2026-10-26,staging
++BAD-000267,report-worker,success,134,,2026-10-27,production
++BAD-000268,workflow-engine,success,181,,2026-10-28,staging
++BAD-000269,integration-gateway,success,228,,2026-10-29,staging
++BAD-000270,release-validator,success,275,,2026-10-30,production
++BAD-000271,log-ingestion,success,322,,2026-10-01,staging
++BAD-000272,auth-service,failed,369,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000273,customer-portal,success,416,,2026-10-03,production
++BAD-000274,analytics-api,success,463,,2026-10-04,staging
++BAD-000275,report-worker,success,510,,2026-10-05,staging
++BAD-000276,workflow-engine,success,557,,2026-10-06,production
++BAD-000277,integration-gateway,success,84,,2026-10-07,staging
++BAD-000278,release-validator,success,131,,2026-10-08,staging
++BAD-000279,log-ingestion,success,178,,2026-10-09,production
++BAD-000280,auth-service,failed,225,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000281,customer-portal,success,272,,2026-10-11,staging
++BAD-000282,analytics-api,success,319,,2026-10-12,production
++BAD-000283,report-worker,success,366,,2026-10-13,staging
++BAD-000284,workflow-engine,success,413,,2026-10-14,staging
++BAD-000285,integration-gateway,success,460,,2026-10-15,production
++BAD-000286,release-validator,success,507,,2026-10-16,staging
++BAD-000287,log-ingestion,success,554,,2026-10-17,staging
++BAD-000288,auth-service,failed,81,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000289,customer-portal,success,128,,2026-10-19,staging
++BAD-000290,analytics-api,success,175,,2026-10-20,staging
++BAD-000291,report-worker,success,222,,2026-10-21,production
++BAD-000292,workflow-engine,success,269,,2026-10-22,staging
++BAD-000293,integration-gateway,success,316,,2026-10-23,staging
++BAD-000294,release-validator,success,363,,2026-10-24,production
++BAD-000295,log-ingestion,success,410,,2026-10-25,staging
++BAD-000296,auth-service,failed,457,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000297,customer-portal,success,504,,2026-10-27,production
++BAD-000298,analytics-api,success,551,,2026-10-28,staging
++BAD-000299,report-worker,success,78,,2026-10-29,staging
++BAD-000300,workflow-engine,unknown,125,,2026-10-30,production
++BAD-000301,integration-gateway,success,0,,2026-10-01,staging
++BAD-000302,release-validator,failed,219,,2026-10-02,staging
++BAD-000303,log-ingestion,success,266,Unexpected error message,2026-10-03,production
++BAD-000304,auth-service,success,313,,2026-13-40,staging
++BAD-000300,customer-portal,success,360,,2026-10-05,staging
++BAD-000306,analytics-api,success,407,,2026-10-06,production
++BAD-000307,report-worker,success,454,,2026-10-07,staging
++BAD-000308,workflow-engine,success,501,,2026-10-08,staging
++BAD-000309,integration-gateway,success,548,,2026-10-09,production
++BAD-000310,release-validator,success,75,,2026-10-10,staging
++BAD-000311,log-ingestion,success,122,,2026-10-11,staging
++BAD-000312,auth-service,failed,169,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000313,customer-portal,success,216,,2026-10-13,staging
++BAD-000314,analytics-api,success,263,,2026-10-14,staging
++BAD-000315,report-worker,success,310,,2026-10-15,production
++BAD-000316,workflow-engine,success,357,,2026-10-16,staging
++BAD-000317,integration-gateway,success,404,,2026-10-17,staging
++BAD-000318,release-validator,success,451,,2026-10-18,production
++BAD-000319,log-ingestion,success,498,,2026-10-19,staging
++BAD-000320,auth-service,failed,545,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000321,customer-portal,success,72,,2026-10-21,production
++BAD-000322,analytics-api,success,119,,2026-10-22,staging
++BAD-000323,report-worker,success,166,,2026-10-23,staging
++BAD-000324,workflow-engine,success,213,,2026-10-24,production
++BAD-000325,integration-gateway,success,260,,2026-10-25,staging
++BAD-000326,release-validator,success,307,,2026-10-26,staging
++BAD-000327,log-ingestion,success,354,,2026-10-27,production
++BAD-000328,auth-service,failed,401,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000329,customer-portal,success,448,,2026-10-29,staging
++BAD-000330,analytics-api,success,495,,2026-10-30,production
++BAD-000331,report-worker,success,542,,2026-10-01,staging
++BAD-000332,workflow-engine,success,69,,2026-10-02,staging
++BAD-000333,integration-gateway,failed,116,Database connection refused,2026-10-03,production
++BAD-000334,release-validator,success,163,,2026-10-04,staging
++BAD-000335,log-ingestion,success,210,,2026-10-05,staging
++BAD-000336,auth-service,failed,257,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000337,customer-portal,success,304,,2026-10-07,staging
++BAD-000338,analytics-api,success,351,,2026-10-08,staging
++BAD-000339,report-worker,success,398,,2026-10-09,production
++BAD-000340,workflow-engine,success,445,,2026-10-10,staging
++BAD-000341,integration-gateway,success,492,,2026-10-11,staging
++BAD-000342,release-validator,success,539,,2026-10-12,production
++BAD-000343,log-ingestion,success,66,,2026-10-13,staging
++BAD-000344,auth-service,failed,113,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000345,customer-portal,success,160,,2026-10-15,production
++BAD-000346,analytics-api,success,207,,2026-10-16,staging
++BAD-000347,report-worker,success,254,,2026-10-17,staging
++BAD-000348,workflow-engine,success,301,,2026-10-18,production
++BAD-000349,integration-gateway,success,348,,2026-10-19,staging
++BAD-000350,release-validator,success,395,,2026-10-20,staging
++BAD-000351,log-ingestion,success,442,,2026-10-21,production
++BAD-000352,auth-service,failed,489,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000353,customer-portal,success,536,,2026-10-23,staging
++BAD-000354,analytics-api,success,583,,2026-10-24,production
++BAD-000355,report-worker,success,110,,2026-10-25,staging
++BAD-000356,workflow-engine,success,157,,2026-10-26,staging
++BAD-000357,integration-gateway,success,204,,2026-10-27,production
++BAD-000358,release-validator,success,251,,2026-10-28,staging
++BAD-000359,log-ingestion,success,298,,2026-10-29,staging
++BAD-000360,auth-service,failed,345,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000361,customer-portal,success,392,,2026-10-01,staging
++BAD-000362,analytics-api,success,439,,2026-10-02,staging
++BAD-000363,report-worker,success,486,,2026-10-03,production
++BAD-000364,workflow-engine,success,533,,2026-10-04,staging
++BAD-000365,integration-gateway,success,580,,2026-10-05,staging
++BAD-000366,release-validator,success,107,,2026-10-06,production
++BAD-000367,log-ingestion,success,154,,2026-10-07,staging
++BAD-000368,auth-service,failed,201,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000369,customer-portal,success,248,,2026-10-09,production
++BAD-000370,analytics-api,failed,295,Migration lock timeout,2026-10-10,staging
++BAD-000371,report-worker,success,342,,2026-10-11,staging
++BAD-000372,workflow-engine,success,389,,2026-10-12,production
++BAD-000373,integration-gateway,success,436,,2026-10-13,staging
++BAD-000374,release-validator,success,483,,2026-10-14,staging
++BAD-000375,log-ingestion,success,530,,2026-10-15,production
++BAD-000376,auth-service,failed,577,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000377,customer-portal,success,104,,2026-10-17,staging
++BAD-000378,analytics-api,success,151,,2026-10-18,production
++BAD-000379,report-worker,success,198,,2026-10-19,staging
++BAD-000380,workflow-engine,success,245,,2026-10-20,staging
++BAD-000381,integration-gateway,success,292,,2026-10-21,production
++BAD-000382,release-validator,success,339,,2026-10-22,staging
++BAD-000383,log-ingestion,success,386,,2026-10-23,staging
++BAD-000384,auth-service,failed,433,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000385,customer-portal,success,480,,2026-10-25,staging
++BAD-000386,analytics-api,success,527,,2026-10-26,staging
++BAD-000387,report-worker,success,574,,2026-10-27,production
++BAD-000388,workflow-engine,success,101,,2026-10-28,staging
++BAD-000389,integration-gateway,success,148,,2026-10-29,staging
++BAD-000390,release-validator,success,195,,2026-10-30,production
++BAD-000391,log-ingestion,success,242,,2026-10-01,staging
++BAD-000392,auth-service,failed,289,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000393,customer-portal,success,336,,2026-10-03,production
++BAD-000394,analytics-api,success,383,,2026-10-04,staging
++BAD-000395,report-worker,success,430,,2026-10-05,staging
++BAD-000396,workflow-engine,success,477,,2026-10-06,production
++BAD-000397,integration-gateway,success,524,,2026-10-07,staging
++BAD-000398,release-validator,success,571,,2026-10-08,staging
++BAD-000399,log-ingestion,success,98,,2026-10-09,production
++BAD-000400,auth-service,unknown,145,,2026-10-10,staging
++BAD-000401,customer-portal,success,0,,2026-10-11,staging
++BAD-000402,analytics-api,failed,239,,2026-10-12,production
++BAD-000403,report-worker,success,286,Unexpected error message,2026-10-13,staging
++BAD-000404,workflow-engine,success,333,,2026-13-40,staging
++BAD-000400,integration-gateway,success,380,,2026-10-15,production
++BAD-000406,release-validator,success,427,,2026-10-16,staging
++BAD-000407,log-ingestion,failed,474,Readiness probe failed: HTTP 503,2026-10-17,staging
++BAD-000408,auth-service,failed,521,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000409,customer-portal,success,568,,2026-10-19,staging
++BAD-000410,analytics-api,success,95,,2026-10-20,staging
++BAD-000411,report-worker,success,142,,2026-10-21,production
++BAD-000412,workflow-engine,success,189,,2026-10-22,staging
++BAD-000413,integration-gateway,success,236,,2026-10-23,staging
++BAD-000414,release-validator,success,283,,2026-10-24,production
++BAD-000415,log-ingestion,success,330,,2026-10-25,staging
++BAD-000416,auth-service,failed,377,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000417,customer-portal,success,424,,2026-10-27,production
++BAD-000418,analytics-api,success,471,,2026-10-28,staging
++BAD-000419,report-worker,success,518,,2026-10-29,staging
++BAD-000420,workflow-engine,success,565,,2026-10-30,production
++BAD-000421,integration-gateway,success,92,,2026-10-01,staging
++BAD-000422,release-validator,success,139,,2026-10-02,staging
++BAD-000423,log-ingestion,success,186,,2026-10-03,production
++BAD-000424,auth-service,failed,233,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000425,customer-portal,success,280,,2026-10-05,staging
++BAD-000426,analytics-api,success,327,,2026-10-06,production
++BAD-000427,report-worker,success,374,,2026-10-07,staging
++BAD-000428,workflow-engine,success,421,,2026-10-08,staging
++BAD-000429,integration-gateway,success,468,,2026-10-09,production
++BAD-000430,release-validator,success,515,,2026-10-10,staging
++BAD-000431,log-ingestion,success,562,,2026-10-11,staging
++BAD-000432,auth-service,failed,89,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000433,customer-portal,success,136,,2026-10-13,staging
++BAD-000434,analytics-api,success,183,,2026-10-14,staging
++BAD-000435,report-worker,success,230,,2026-10-15,production
++BAD-000436,workflow-engine,success,277,,2026-10-16,staging
++BAD-000437,integration-gateway,success,324,,2026-10-17,staging
++BAD-000438,release-validator,success,371,,2026-10-18,production
++BAD-000439,log-ingestion,success,418,,2026-10-19,staging
++BAD-000440,auth-service,failed,465,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000441,customer-portal,success,512,,2026-10-21,production
++BAD-000442,analytics-api,success,559,,2026-10-22,staging
++BAD-000443,report-worker,success,86,,2026-10-23,staging
++BAD-000444,workflow-engine,failed,133,Image pull failed: registry timeout,2026-10-24,production
++BAD-000445,integration-gateway,success,180,,2026-10-25,staging
++BAD-000446,release-validator,success,227,,2026-10-26,staging
++BAD-000447,log-ingestion,success,274,,2026-10-27,production
++BAD-000448,auth-service,failed,321,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000449,customer-portal,success,368,,2026-10-29,staging
++BAD-000450,analytics-api,success,415,,2026-10-30,production
++BAD-000451,report-worker,success,462,,2026-10-01,staging
++BAD-000452,workflow-engine,success,509,,2026-10-02,staging
++BAD-000453,integration-gateway,success,556,,2026-10-03,production
++BAD-000454,release-validator,success,83,,2026-10-04,staging
++BAD-000455,log-ingestion,success,130,,2026-10-05,staging
++BAD-000456,auth-service,failed,177,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000457,customer-portal,success,224,,2026-10-07,staging
++BAD-000458,analytics-api,success,271,,2026-10-08,staging
++BAD-000459,report-worker,success,318,,2026-10-09,production
++BAD-000460,workflow-engine,success,365,,2026-10-10,staging
++BAD-000461,integration-gateway,success,412,,2026-10-11,staging
++BAD-000462,release-validator,success,459,,2026-10-12,production
++BAD-000463,log-ingestion,success,506,,2026-10-13,staging
++BAD-000464,auth-service,failed,553,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000465,customer-portal,success,80,,2026-10-15,production
++BAD-000466,analytics-api,success,127,,2026-10-16,staging
++BAD-000467,report-worker,success,174,,2026-10-17,staging
++BAD-000468,workflow-engine,success,221,,2026-10-18,production
++BAD-000469,integration-gateway,success,268,,2026-10-19,staging
++BAD-000470,release-validator,success,315,,2026-10-20,staging
++BAD-000471,log-ingestion,success,362,,2026-10-21,production
++BAD-000472,auth-service,failed,409,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000473,customer-portal,success,456,,2026-10-23,staging
++BAD-000474,analytics-api,success,503,,2026-10-24,production
++BAD-000475,report-worker,success,550,,2026-10-25,staging
++BAD-000476,workflow-engine,success,77,,2026-10-26,staging
++BAD-000477,integration-gateway,success,124,,2026-10-27,production
++BAD-000478,release-validator,success,171,,2026-10-28,staging
++BAD-000479,log-ingestion,success,218,,2026-10-29,staging
++BAD-000480,auth-service,failed,265,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000481,customer-portal,failed,312,Health check timeout,2026-10-01,staging
++BAD-000482,analytics-api,success,359,,2026-10-02,staging
++BAD-000483,report-worker,success,406,,2026-10-03,production
++BAD-000484,workflow-engine,success,453,,2026-10-04,staging
++BAD-000485,integration-gateway,success,500,,2026-10-05,staging
++BAD-000486,release-validator,success,547,,2026-10-06,production
++BAD-000487,log-ingestion,success,74,,2026-10-07,staging
++BAD-000488,auth-service,failed,121,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000489,customer-portal,success,168,,2026-10-09,production
++BAD-000490,analytics-api,success,215,,2026-10-10,staging
++BAD-000491,report-worker,success,262,,2026-10-11,staging
++BAD-000492,workflow-engine,success,309,,2026-10-12,production
++BAD-000493,integration-gateway,success,356,,2026-10-13,staging
++BAD-000494,release-validator,success,403,,2026-10-14,staging
++BAD-000495,log-ingestion,success,450,,2026-10-15,production
++BAD-000496,auth-service,failed,497,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000497,customer-portal,success,544,,2026-10-17,staging
++BAD-000498,analytics-api,success,71,,2026-10-18,production
++BAD-000499,report-worker,success,118,,2026-10-19,staging
++BAD-000500,workflow-engine,unknown,165,,2026-10-20,staging
++BAD-000501,integration-gateway,success,0,,2026-10-21,production
++BAD-000502,release-validator,failed,259,,2026-10-22,staging
++BAD-000503,log-ingestion,success,306,Unexpected error message,2026-10-23,staging
++BAD-000504,auth-service,success,353,,2026-13-40,production
++BAD-000500,customer-portal,success,400,,2026-10-25,staging
++BAD-000506,analytics-api,success,447,,2026-10-26,staging
++BAD-000507,report-worker,success,494,,2026-10-27,production
++BAD-000508,workflow-engine,success,541,,2026-10-28,staging
++BAD-000509,integration-gateway,success,68,,2026-10-29,staging
++BAD-000510,release-validator,success,115,,2026-10-30,production
++BAD-000511,log-ingestion,success,162,,2026-10-01,staging
++BAD-000512,auth-service,failed,209,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000513,customer-portal,success,256,,2026-10-03,production
++BAD-000514,analytics-api,success,303,,2026-10-04,staging
++BAD-000515,report-worker,success,350,,2026-10-05,staging
++BAD-000516,workflow-engine,success,397,,2026-10-06,production
++BAD-000517,integration-gateway,success,444,,2026-10-07,staging
++BAD-000518,release-validator,failed,491,Container exited with code 1,2026-10-08,staging
++BAD-000519,log-ingestion,success,538,,2026-10-09,production
++BAD-000520,auth-service,failed,65,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000521,customer-portal,success,112,,2026-10-11,staging
++BAD-000522,analytics-api,success,159,,2026-10-12,production
++BAD-000523,report-worker,success,206,,2026-10-13,staging
++BAD-000524,workflow-engine,success,253,,2026-10-14,staging
++BAD-000525,integration-gateway,success,300,,2026-10-15,production
++BAD-000526,release-validator,success,347,,2026-10-16,staging
++BAD-000527,log-ingestion,success,394,,2026-10-17,staging
++BAD-000528,auth-service,failed,441,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000529,customer-portal,success,488,,2026-10-19,staging
++BAD-000530,analytics-api,success,535,,2026-10-20,staging
++BAD-000531,report-worker,success,582,,2026-10-21,production
++BAD-000532,workflow-engine,success,109,,2026-10-22,staging
++BAD-000533,integration-gateway,success,156,,2026-10-23,staging
++BAD-000534,release-validator,success,203,,2026-10-24,production
++BAD-000535,log-ingestion,success,250,,2026-10-25,staging
++BAD-000536,auth-service,failed,297,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000537,customer-portal,success,344,,2026-10-27,production
++BAD-000538,analytics-api,success,391,,2026-10-28,staging
++BAD-000539,report-worker,success,438,,2026-10-29,staging
++BAD-000540,workflow-engine,success,485,,2026-10-30,production
++BAD-000541,integration-gateway,success,532,,2026-10-01,staging
++BAD-000542,release-validator,success,579,,2026-10-02,staging
++BAD-000543,log-ingestion,success,106,,2026-10-03,production
++BAD-000544,auth-service,failed,153,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000545,customer-portal,success,200,,2026-10-05,staging
++BAD-000546,analytics-api,success,247,,2026-10-06,production
++BAD-000547,report-worker,success,294,,2026-10-07,staging
++BAD-000548,workflow-engine,success,341,,2026-10-08,staging
++BAD-000549,integration-gateway,success,388,,2026-10-09,production
++BAD-000550,release-validator,success,435,,2026-10-10,staging
++BAD-000551,log-ingestion,success,482,,2026-10-11,staging
++BAD-000552,auth-service,failed,529,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000553,customer-portal,success,576,,2026-10-13,staging
++BAD-000554,analytics-api,success,103,,2026-10-14,staging
++BAD-000555,report-worker,failed,150,Dependency unavailable: upstream timeout,2026-10-15,production
++BAD-000556,workflow-engine,success,197,,2026-10-16,staging
++BAD-000557,integration-gateway,success,244,,2026-10-17,staging
++BAD-000558,release-validator,success,291,,2026-10-18,production
++BAD-000559,log-ingestion,success,338,,2026-10-19,staging
++BAD-000560,auth-service,failed,385,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000561,customer-portal,success,432,,2026-10-21,production
++BAD-000562,analytics-api,success,479,,2026-10-22,staging
++BAD-000563,report-worker,success,526,,2026-10-23,staging
++BAD-000564,workflow-engine,success,573,,2026-10-24,production
++BAD-000565,integration-gateway,success,100,,2026-10-25,staging
++BAD-000566,release-validator,success,147,,2026-10-26,staging
++BAD-000567,log-ingestion,success,194,,2026-10-27,production
++BAD-000568,auth-service,failed,241,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000569,customer-portal,success,288,,2026-10-29,staging
++BAD-000570,analytics-api,success,335,,2026-10-30,production
++BAD-000571,report-worker,success,382,,2026-10-01,staging
++BAD-000572,workflow-engine,success,429,,2026-10-02,staging
++BAD-000573,integration-gateway,success,476,,2026-10-03,production
++BAD-000574,release-validator,success,523,,2026-10-04,staging
++BAD-000575,log-ingestion,success,570,,2026-10-05,staging
++BAD-000576,auth-service,failed,97,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000577,customer-portal,success,144,,2026-10-07,staging
++BAD-000578,analytics-api,success,191,,2026-10-08,staging
++BAD-000579,report-worker,success,238,,2026-10-09,production
++BAD-000580,workflow-engine,success,285,,2026-10-10,staging
++BAD-000581,integration-gateway,success,332,,2026-10-11,staging
++BAD-000582,release-validator,success,379,,2026-10-12,production
++BAD-000583,log-ingestion,success,426,,2026-10-13,staging
++BAD-000584,auth-service,failed,473,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000585,customer-portal,success,520,,2026-10-15,production
++BAD-000586,analytics-api,success,567,,2026-10-16,staging
++BAD-000587,report-worker,success,94,,2026-10-17,staging
++BAD-000588,workflow-engine,success,141,,2026-10-18,production
++BAD-000589,integration-gateway,success,188,,2026-10-19,staging
++BAD-000590,release-validator,success,235,,2026-10-20,staging
++BAD-000591,log-ingestion,success,282,,2026-10-21,production
++BAD-000592,auth-service,failed,329,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000593,customer-portal,success,376,,2026-10-23,staging
++BAD-000594,analytics-api,success,423,,2026-10-24,production
++BAD-000595,report-worker,success,470,,2026-10-25,staging
++BAD-000596,workflow-engine,success,517,,2026-10-26,staging
++BAD-000597,integration-gateway,success,564,,2026-10-27,production
++BAD-000598,release-validator,success,91,,2026-10-28,staging
++BAD-000599,log-ingestion,success,138,,2026-10-29,staging
++BAD-000600,auth-service,unknown,185,,2026-10-30,production
++BAD-000601,customer-portal,success,0,,2026-10-01,staging
++BAD-000602,analytics-api,failed,279,,2026-10-02,staging
++BAD-000603,report-worker,success,326,Unexpected error message,2026-10-03,production
++BAD-000604,workflow-engine,success,373,,2026-13-40,staging
++BAD-000600,integration-gateway,success,420,,2026-10-05,staging
++BAD-000606,release-validator,success,467,,2026-10-06,production
++BAD-000607,log-ingestion,success,514,,2026-10-07,staging
++BAD-000608,auth-service,failed,561,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000609,customer-portal,success,88,,2026-10-09,production
++BAD-000610,analytics-api,success,135,,2026-10-10,staging
++BAD-000611,report-worker,success,182,,2026-10-11,staging
++BAD-000612,workflow-engine,success,229,,2026-10-12,production
++BAD-000613,integration-gateway,success,276,,2026-10-13,staging
++BAD-000614,release-validator,success,323,,2026-10-14,staging
++BAD-000615,log-ingestion,success,370,,2026-10-15,production
++BAD-000616,auth-service,failed,417,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000617,customer-portal,success,464,,2026-10-17,staging
++BAD-000618,analytics-api,success,511,,2026-10-18,production
++BAD-000619,report-worker,success,558,,2026-10-19,staging
++BAD-000620,workflow-engine,success,85,,2026-10-20,staging
++BAD-000621,integration-gateway,success,132,,2026-10-21,production
++BAD-000622,release-validator,success,179,,2026-10-22,staging
++BAD-000623,log-ingestion,success,226,,2026-10-23,staging
++BAD-000624,auth-service,failed,273,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000625,customer-portal,success,320,,2026-10-25,staging
++BAD-000626,analytics-api,success,367,,2026-10-26,staging
++BAD-000627,report-worker,success,414,,2026-10-27,production
++BAD-000628,workflow-engine,success,461,,2026-10-28,staging
++BAD-000629,integration-gateway,failed,508,Database connection refused,2026-10-29,staging
++BAD-000630,release-validator,success,555,,2026-10-30,production
++BAD-000631,log-ingestion,success,82,,2026-10-01,staging
++BAD-000632,auth-service,failed,129,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000633,customer-portal,success,176,,2026-10-03,production
++BAD-000634,analytics-api,success,223,,2026-10-04,staging
++BAD-000635,report-worker,success,270,,2026-10-05,staging
++BAD-000636,workflow-engine,success,317,,2026-10-06,production
++BAD-000637,integration-gateway,success,364,,2026-10-07,staging
++BAD-000638,release-validator,success,411,,2026-10-08,staging
++BAD-000639,log-ingestion,success,458,,2026-10-09,production
++BAD-000640,auth-service,failed,505,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000641,customer-portal,success,552,,2026-10-11,staging
++BAD-000642,analytics-api,success,79,,2026-10-12,production
++BAD-000643,report-worker,success,126,,2026-10-13,staging
++BAD-000644,workflow-engine,success,173,,2026-10-14,staging
++BAD-000645,integration-gateway,success,220,,2026-10-15,production
++BAD-000646,release-validator,success,267,,2026-10-16,staging
++BAD-000647,log-ingestion,success,314,,2026-10-17,staging
++BAD-000648,auth-service,failed,361,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000649,customer-portal,success,408,,2026-10-19,staging
++BAD-000650,analytics-api,success,455,,2026-10-20,staging
++BAD-000651,report-worker,success,502,,2026-10-21,production
++BAD-000652,workflow-engine,success,549,,2026-10-22,staging
++BAD-000653,integration-gateway,success,76,,2026-10-23,staging
++BAD-000654,release-validator,success,123,,2026-10-24,production
++BAD-000655,log-ingestion,success,170,,2026-10-25,staging
++BAD-000656,auth-service,failed,217,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000657,customer-portal,success,264,,2026-10-27,production
++BAD-000658,analytics-api,success,311,,2026-10-28,staging
++BAD-000659,report-worker,success,358,,2026-10-29,staging
++BAD-000660,workflow-engine,success,405,,2026-10-30,production
++BAD-000661,integration-gateway,success,452,,2026-10-01,staging
++BAD-000662,release-validator,success,499,,2026-10-02,staging
++BAD-000663,log-ingestion,success,546,,2026-10-03,production
++BAD-000664,auth-service,failed,73,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000665,customer-portal,success,120,,2026-10-05,staging
++BAD-000666,analytics-api,failed,167,Migration lock timeout,2026-10-06,production
++BAD-000667,report-worker,success,214,,2026-10-07,staging
++BAD-000668,workflow-engine,success,261,,2026-10-08,staging
++BAD-000669,integration-gateway,success,308,,2026-10-09,production
++BAD-000670,release-validator,success,355,,2026-10-10,staging
++BAD-000671,log-ingestion,success,402,,2026-10-11,staging
++BAD-000672,auth-service,failed,449,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000673,customer-portal,success,496,,2026-10-13,staging
++BAD-000674,analytics-api,success,543,,2026-10-14,staging
++BAD-000675,report-worker,success,70,,2026-10-15,production
++BAD-000676,workflow-engine,success,117,,2026-10-16,staging
++BAD-000677,integration-gateway,success,164,,2026-10-17,staging
++BAD-000678,release-validator,success,211,,2026-10-18,production
++BAD-000679,log-ingestion,success,258,,2026-10-19,staging
++BAD-000680,auth-service,failed,305,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000681,customer-portal,success,352,,2026-10-21,production
++BAD-000682,analytics-api,success,399,,2026-10-22,staging
++BAD-000683,report-worker,success,446,,2026-10-23,staging
++BAD-000684,workflow-engine,success,493,,2026-10-24,production
++BAD-000685,integration-gateway,success,540,,2026-10-25,staging
++BAD-000686,release-validator,success,67,,2026-10-26,staging
++BAD-000687,log-ingestion,success,114,,2026-10-27,production
++BAD-000688,auth-service,failed,161,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000689,customer-portal,success,208,,2026-10-29,staging
++BAD-000690,analytics-api,success,255,,2026-10-30,production
++BAD-000691,report-worker,success,302,,2026-10-01,staging
++BAD-000692,workflow-engine,success,349,,2026-10-02,staging
++BAD-000693,integration-gateway,success,396,,2026-10-03,production
++BAD-000694,release-validator,success,443,,2026-10-04,staging
++BAD-000695,log-ingestion,success,490,,2026-10-05,staging
++BAD-000696,auth-service,failed,537,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000697,customer-portal,success,584,,2026-10-07,staging
++BAD-000698,analytics-api,success,111,,2026-10-08,staging
++BAD-000699,report-worker,success,158,,2026-10-09,production
++BAD-000700,workflow-engine,unknown,205,,2026-10-10,staging
++BAD-000701,integration-gateway,success,0,,2026-10-11,staging
++BAD-000702,release-validator,failed,299,,2026-10-12,production
++BAD-000703,log-ingestion,success,346,Unexpected error message,2026-10-13,staging
++BAD-000704,auth-service,success,393,,2026-13-40,staging
++BAD-000700,customer-portal,success,440,,2026-10-15,production
++BAD-000706,analytics-api,success,487,,2026-10-16,staging
++BAD-000707,report-worker,success,534,,2026-10-17,staging
++BAD-000708,workflow-engine,success,581,,2026-10-18,production
++BAD-000709,integration-gateway,success,108,,2026-10-19,staging
++BAD-000710,release-validator,success,155,,2026-10-20,staging
++BAD-000711,log-ingestion,success,202,,2026-10-21,production
++BAD-000712,auth-service,failed,249,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000713,customer-portal,success,296,,2026-10-23,staging
++BAD-000714,analytics-api,success,343,,2026-10-24,production
++BAD-000715,report-worker,success,390,,2026-10-25,staging
++BAD-000716,workflow-engine,success,437,,2026-10-26,staging
++BAD-000717,integration-gateway,success,484,,2026-10-27,production
++BAD-000718,release-validator,success,531,,2026-10-28,staging
++BAD-000719,log-ingestion,success,578,,2026-10-29,staging
++BAD-000720,auth-service,failed,105,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000721,customer-portal,success,152,,2026-10-01,staging
++BAD-000722,analytics-api,success,199,,2026-10-02,staging
++BAD-000723,report-worker,success,246,,2026-10-03,production
++BAD-000724,workflow-engine,success,293,,2026-10-04,staging
++BAD-000725,integration-gateway,success,340,,2026-10-05,staging
++BAD-000726,release-validator,success,387,,2026-10-06,production
++BAD-000727,log-ingestion,success,434,,2026-10-07,staging
++BAD-000728,auth-service,failed,481,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000729,customer-portal,success,528,,2026-10-09,production
++BAD-000730,analytics-api,success,575,,2026-10-10,staging
++BAD-000731,report-worker,success,102,,2026-10-11,staging
++BAD-000732,workflow-engine,success,149,,2026-10-12,production
++BAD-000733,integration-gateway,success,196,,2026-10-13,staging
++BAD-000734,release-validator,success,243,,2026-10-14,staging
++BAD-000735,log-ingestion,success,290,,2026-10-15,production
++BAD-000736,auth-service,failed,337,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000737,customer-portal,success,384,,2026-10-17,staging
++BAD-000738,analytics-api,success,431,,2026-10-18,production
++BAD-000739,report-worker,success,478,,2026-10-19,staging
++BAD-000740,workflow-engine,failed,525,Image pull failed: registry timeout,2026-10-20,staging
++BAD-000741,integration-gateway,success,572,,2026-10-21,production
++BAD-000742,release-validator,success,99,,2026-10-22,staging
++BAD-000743,log-ingestion,success,146,,2026-10-23,staging
++BAD-000744,auth-service,failed,193,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000745,customer-portal,success,240,,2026-10-25,staging
++BAD-000746,analytics-api,success,287,,2026-10-26,staging
++BAD-000747,report-worker,success,334,,2026-10-27,production
++BAD-000748,workflow-engine,success,381,,2026-10-28,staging
++BAD-000749,integration-gateway,success,428,,2026-10-29,staging
++BAD-000750,release-validator,success,475,,2026-10-30,production
++BAD-000751,log-ingestion,success,522,,2026-10-01,staging
++BAD-000752,auth-service,failed,569,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000753,customer-portal,success,96,,2026-10-03,production
++BAD-000754,analytics-api,success,143,,2026-10-04,staging
++BAD-000755,report-worker,success,190,,2026-10-05,staging
++BAD-000756,workflow-engine,success,237,,2026-10-06,production
++BAD-000757,integration-gateway,success,284,,2026-10-07,staging
++BAD-000758,release-validator,success,331,,2026-10-08,staging
++BAD-000759,log-ingestion,success,378,,2026-10-09,production
++BAD-000760,auth-service,failed,425,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000761,customer-portal,success,472,,2026-10-11,staging
++BAD-000762,analytics-api,success,519,,2026-10-12,production
++BAD-000763,report-worker,success,566,,2026-10-13,staging
++BAD-000764,workflow-engine,success,93,,2026-10-14,staging
++BAD-000765,integration-gateway,success,140,,2026-10-15,production
++BAD-000766,release-validator,success,187,,2026-10-16,staging
++BAD-000767,log-ingestion,success,234,,2026-10-17,staging
++BAD-000768,auth-service,failed,281,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000769,customer-portal,success,328,,2026-10-19,staging
++BAD-000770,analytics-api,success,375,,2026-10-20,staging
++BAD-000771,report-worker,success,422,,2026-10-21,production
++BAD-000772,workflow-engine,success,469,,2026-10-22,staging
++BAD-000773,integration-gateway,success,516,,2026-10-23,staging
++BAD-000774,release-validator,success,563,,2026-10-24,production
++BAD-000775,log-ingestion,success,90,,2026-10-25,staging
++BAD-000776,auth-service,failed,137,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000777,customer-portal,failed,184,Health check timeout,2026-10-27,production
++BAD-000778,analytics-api,success,231,,2026-10-28,staging
++BAD-000779,report-worker,success,278,,2026-10-29,staging
++BAD-000780,workflow-engine,success,325,,2026-10-30,production
++BAD-000781,integration-gateway,success,372,,2026-10-01,staging
++BAD-000782,release-validator,success,419,,2026-10-02,staging
++BAD-000783,log-ingestion,success,466,,2026-10-03,production
++BAD-000784,auth-service,failed,513,Missing environment variable: APP_CONFIG,2026-10-04,staging
++BAD-000785,customer-portal,success,560,,2026-10-05,staging
++BAD-000786,analytics-api,success,87,,2026-10-06,production
++BAD-000787,report-worker,success,134,,2026-10-07,staging
++BAD-000788,workflow-engine,success,181,,2026-10-08,staging
++BAD-000789,integration-gateway,success,228,,2026-10-09,production
++BAD-000790,release-validator,success,275,,2026-10-10,staging
++BAD-000791,log-ingestion,success,322,,2026-10-11,staging
++BAD-000792,auth-service,failed,369,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000793,customer-portal,success,416,,2026-10-13,staging
++BAD-000794,analytics-api,success,463,,2026-10-14,staging
++BAD-000795,report-worker,success,510,,2026-10-15,production
++BAD-000796,workflow-engine,success,557,,2026-10-16,staging
++BAD-000797,integration-gateway,success,84,,2026-10-17,staging
++BAD-000798,release-validator,success,131,,2026-10-18,production
++BAD-000799,log-ingestion,success,178,,2026-10-19,staging
++BAD-000800,auth-service,unknown,225,,2026-10-20,staging
++BAD-000801,customer-portal,success,0,,2026-10-21,production
++BAD-000802,analytics-api,failed,319,,2026-10-22,staging
++BAD-000803,report-worker,success,366,Unexpected error message,2026-10-23,staging
++BAD-000804,workflow-engine,success,413,,2026-13-40,production
++BAD-000800,integration-gateway,success,460,,2026-10-25,staging
++BAD-000806,release-validator,success,507,,2026-10-26,staging
++BAD-000807,log-ingestion,success,554,,2026-10-27,production
++BAD-000808,auth-service,failed,81,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000809,customer-portal,success,128,,2026-10-29,staging
++BAD-000810,analytics-api,success,175,,2026-10-30,production
++BAD-000811,report-worker,success,222,,2026-10-01,staging
++BAD-000812,workflow-engine,success,269,,2026-10-02,staging
++BAD-000813,integration-gateway,success,316,,2026-10-03,production
++BAD-000814,release-validator,failed,363,Container exited with code 1,2026-10-04,staging
++BAD-000815,log-ingestion,success,410,,2026-10-05,staging
++BAD-000816,auth-service,failed,457,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000817,customer-portal,success,504,,2026-10-07,staging
++BAD-000818,analytics-api,success,551,,2026-10-08,staging
++BAD-000819,report-worker,success,78,,2026-10-09,production
++BAD-000820,workflow-engine,success,125,,2026-10-10,staging
++BAD-000821,integration-gateway,success,172,,2026-10-11,staging
++BAD-000822,release-validator,success,219,,2026-10-12,production
++BAD-000823,log-ingestion,success,266,,2026-10-13,staging
++BAD-000824,auth-service,failed,313,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000825,customer-portal,success,360,,2026-10-15,production
++BAD-000826,analytics-api,success,407,,2026-10-16,staging
++BAD-000827,report-worker,success,454,,2026-10-17,staging
++BAD-000828,workflow-engine,success,501,,2026-10-18,production
++BAD-000829,integration-gateway,success,548,,2026-10-19,staging
++BAD-000830,release-validator,success,75,,2026-10-20,staging
++BAD-000831,log-ingestion,success,122,,2026-10-21,production
++BAD-000832,auth-service,failed,169,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000833,customer-portal,success,216,,2026-10-23,staging
++BAD-000834,analytics-api,success,263,,2026-10-24,production
++BAD-000835,report-worker,success,310,,2026-10-25,staging
++BAD-000836,workflow-engine,success,357,,2026-10-26,staging
++BAD-000837,integration-gateway,success,404,,2026-10-27,production
++BAD-000838,release-validator,success,451,,2026-10-28,staging
++BAD-000839,log-ingestion,success,498,,2026-10-29,staging
++BAD-000840,auth-service,failed,545,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000841,customer-portal,success,72,,2026-10-01,staging
++BAD-000842,analytics-api,success,119,,2026-10-02,staging
++BAD-000843,report-worker,success,166,,2026-10-03,production
++BAD-000844,workflow-engine,success,213,,2026-10-04,staging
++BAD-000845,integration-gateway,success,260,,2026-10-05,staging
++BAD-000846,release-validator,success,307,,2026-10-06,production
++BAD-000847,log-ingestion,success,354,,2026-10-07,staging
++BAD-000848,auth-service,failed,401,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000849,customer-portal,success,448,,2026-10-09,production
++BAD-000850,analytics-api,success,495,,2026-10-10,staging
++BAD-000851,report-worker,failed,542,Dependency unavailable: upstream timeout,2026-10-11,staging
++BAD-000852,workflow-engine,success,69,,2026-10-12,production
++BAD-000853,integration-gateway,success,116,,2026-10-13,staging
++BAD-000854,release-validator,success,163,,2026-10-14,staging
++BAD-000855,log-ingestion,success,210,,2026-10-15,production
++BAD-000856,auth-service,failed,257,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000857,customer-portal,success,304,,2026-10-17,staging
++BAD-000858,analytics-api,success,351,,2026-10-18,production
++BAD-000859,report-worker,success,398,,2026-10-19,staging
++BAD-000860,workflow-engine,success,445,,2026-10-20,staging
++BAD-000861,integration-gateway,success,492,,2026-10-21,production
++BAD-000862,release-validator,success,539,,2026-10-22,staging
++BAD-000863,log-ingestion,success,66,,2026-10-23,staging
++BAD-000864,auth-service,failed,113,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000865,customer-portal,success,160,,2026-10-25,staging
++BAD-000866,analytics-api,success,207,,2026-10-26,staging
++BAD-000867,report-worker,success,254,,2026-10-27,production
++BAD-000868,workflow-engine,success,301,,2026-10-28,staging
++BAD-000869,integration-gateway,success,348,,2026-10-29,staging
++BAD-000870,release-validator,success,395,,2026-10-30,production
++BAD-000871,log-ingestion,success,442,,2026-10-01,staging
++BAD-000872,auth-service,failed,489,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000873,customer-portal,success,536,,2026-10-03,production
++BAD-000874,analytics-api,success,583,,2026-10-04,staging
++BAD-000875,report-worker,success,110,,2026-10-05,staging
++BAD-000876,workflow-engine,success,157,,2026-10-06,production
++BAD-000877,integration-gateway,success,204,,2026-10-07,staging
++BAD-000878,release-validator,success,251,,2026-10-08,staging
++BAD-000879,log-ingestion,success,298,,2026-10-09,production
++BAD-000880,auth-service,failed,345,Missing environment variable: APP_CONFIG,2026-10-10,staging
++BAD-000881,customer-portal,success,392,,2026-10-11,staging
++BAD-000882,analytics-api,success,439,,2026-10-12,production
++BAD-000883,report-worker,success,486,,2026-10-13,staging
++BAD-000884,workflow-engine,success,533,,2026-10-14,staging
++BAD-000885,integration-gateway,success,580,,2026-10-15,production
++BAD-000886,release-validator,success,107,,2026-10-16,staging
++BAD-000887,log-ingestion,success,154,,2026-10-17,staging
++BAD-000888,auth-service,failed,201,Missing environment variable: APP_CONFIG,2026-10-18,production
++BAD-000889,customer-portal,success,248,,2026-10-19,staging
++BAD-000890,analytics-api,success,295,,2026-10-20,staging
++BAD-000891,report-worker,success,342,,2026-10-21,production
++BAD-000892,workflow-engine,success,389,,2026-10-22,staging
++BAD-000893,integration-gateway,success,436,,2026-10-23,staging
++BAD-000894,release-validator,success,483,,2026-10-24,production
++BAD-000895,log-ingestion,success,530,,2026-10-25,staging
++BAD-000896,auth-service,failed,577,Missing environment variable: APP_CONFIG,2026-10-26,staging
++BAD-000897,customer-portal,success,104,,2026-10-27,production
++BAD-000898,analytics-api,success,151,,2026-10-28,staging
++BAD-000899,report-worker,success,198,,2026-10-29,staging
++BAD-000900,workflow-engine,unknown,245,,2026-10-30,production
++BAD-000901,integration-gateway,success,0,,2026-10-01,staging
++BAD-000902,release-validator,failed,339,,2026-10-02,staging
++BAD-000903,log-ingestion,success,386,Unexpected error message,2026-10-03,production
++BAD-000904,auth-service,success,433,,2026-13-40,staging
++BAD-000900,customer-portal,success,480,,2026-10-05,staging
++BAD-000906,analytics-api,success,527,,2026-10-06,production
++BAD-000907,report-worker,success,574,,2026-10-07,staging
++BAD-000908,workflow-engine,success,101,,2026-10-08,staging
++BAD-000909,integration-gateway,success,148,,2026-10-09,production
++BAD-000910,release-validator,success,195,,2026-10-10,staging
++BAD-000911,log-ingestion,success,242,,2026-10-11,staging
++BAD-000912,auth-service,failed,289,Missing environment variable: APP_CONFIG,2026-10-12,production
++BAD-000913,customer-portal,success,336,,2026-10-13,staging
++BAD-000914,analytics-api,success,383,,2026-10-14,staging
++BAD-000915,report-worker,success,430,,2026-10-15,production
++BAD-000916,workflow-engine,success,477,,2026-10-16,staging
++BAD-000917,integration-gateway,success,524,,2026-10-17,staging
++BAD-000918,release-validator,success,571,,2026-10-18,production
++BAD-000919,log-ingestion,success,98,,2026-10-19,staging
++BAD-000920,auth-service,failed,145,Missing environment variable: APP_CONFIG,2026-10-20,staging
++BAD-000921,customer-portal,success,192,,2026-10-21,production
++BAD-000922,analytics-api,success,239,,2026-10-22,staging
++BAD-000923,report-worker,success,286,,2026-10-23,staging
++BAD-000924,workflow-engine,success,333,,2026-10-24,production
++BAD-000925,integration-gateway,failed,380,Database connection refused,2026-10-25,staging
++BAD-000926,release-validator,success,427,,2026-10-26,staging
++BAD-000927,log-ingestion,success,474,,2026-10-27,production
++BAD-000928,auth-service,failed,521,Missing environment variable: APP_CONFIG,2026-10-28,staging
++BAD-000929,customer-portal,success,568,,2026-10-29,staging
++BAD-000930,analytics-api,success,95,,2026-10-30,production
++BAD-000931,report-worker,success,142,,2026-10-01,staging
++BAD-000932,workflow-engine,success,189,,2026-10-02,staging
++BAD-000933,integration-gateway,success,236,,2026-10-03,production
++BAD-000934,release-validator,success,283,,2026-10-04,staging
++BAD-000935,log-ingestion,success,330,,2026-10-05,staging
++BAD-000936,auth-service,failed,377,Missing environment variable: APP_CONFIG,2026-10-06,production
++BAD-000937,customer-portal,success,424,,2026-10-07,staging
++BAD-000938,analytics-api,success,471,,2026-10-08,staging
++BAD-000939,report-worker,success,518,,2026-10-09,production
++BAD-000940,workflow-engine,success,565,,2026-10-10,staging
++BAD-000941,integration-gateway,success,92,,2026-10-11,staging
++BAD-000942,release-validator,success,139,,2026-10-12,production
++BAD-000943,log-ingestion,success,186,,2026-10-13,staging
++BAD-000944,auth-service,failed,233,Missing environment variable: APP_CONFIG,2026-10-14,staging
++BAD-000945,customer-portal,success,280,,2026-10-15,production
++BAD-000946,analytics-api,success,327,,2026-10-16,staging
++BAD-000947,report-worker,success,374,,2026-10-17,staging
++BAD-000948,workflow-engine,success,421,,2026-10-18,production
++BAD-000949,integration-gateway,success,468,,2026-10-19,staging
++BAD-000950,release-validator,success,515,,2026-10-20,staging
++BAD-000951,log-ingestion,success,562,,2026-10-21,production
++BAD-000952,auth-service,failed,89,Missing environment variable: APP_CONFIG,2026-10-22,staging
++BAD-000953,customer-portal,success,136,,2026-10-23,staging
++BAD-000954,analytics-api,success,183,,2026-10-24,production
++BAD-000955,report-worker,success,230,,2026-10-25,staging
++BAD-000956,workflow-engine,success,277,,2026-10-26,staging
++BAD-000957,integration-gateway,success,324,,2026-10-27,production
++BAD-000958,release-validator,success,371,,2026-10-28,staging
++BAD-000959,log-ingestion,success,418,,2026-10-29,staging
++BAD-000960,auth-service,failed,465,Missing environment variable: APP_CONFIG,2026-10-30,production
++BAD-000961,customer-portal,success,512,,2026-10-01,staging
++BAD-000962,analytics-api,failed,559,Migration lock timeout,2026-10-02,staging
++BAD-000963,report-worker,success,86,,2026-10-03,production
++BAD-000964,workflow-engine,success,133,,2026-10-04,staging
++BAD-000965,integration-gateway,success,180,,2026-10-05,staging
++BAD-000966,release-validator,success,227,,2026-10-06,production
++BAD-000967,log-ingestion,success,274,,2026-10-07,staging
++BAD-000968,auth-service,failed,321,Missing environment variable: APP_CONFIG,2026-10-08,staging
++BAD-000969,customer-portal,success,368,,2026-10-09,production
++BAD-000970,analytics-api,success,415,,2026-10-10,staging
++BAD-000971,report-worker,success,462,,2026-10-11,staging
++BAD-000972,workflow-engine,success,509,,2026-10-12,production
++BAD-000973,integration-gateway,success,556,,2026-10-13,staging
++BAD-000974,release-validator,success,83,,2026-10-14,staging
++BAD-000975,log-ingestion,success,130,,2026-10-15,production
++BAD-000976,auth-service,failed,177,Missing environment variable: APP_CONFIG,2026-10-16,staging
++BAD-000977,customer-portal,success,224,,2026-10-17,staging
++BAD-000978,analytics-api,success,271,,2026-10-18,production
++BAD-000979,report-worker,success,318,,2026-10-19,staging
++BAD-000980,workflow-engine,success,365,,2026-10-20,staging
++BAD-000981,integration-gateway,success,412,,2026-10-21,production
++BAD-000982,release-validator,success,459,,2026-10-22,staging
++BAD-000983,log-ingestion,success,506,,2026-10-23,staging
++BAD-000984,auth-service,failed,553,Missing environment variable: APP_CONFIG,2026-10-24,production
++BAD-000985,customer-portal,success,80,,2026-10-25,staging
++BAD-000986,analytics-api,success,127,,2026-10-26,staging
++BAD-000987,report-worker,success,174,,2026-10-27,production
++BAD-000988,workflow-engine,success,221,,2026-10-28,staging
++BAD-000989,integration-gateway,success,268,,2026-10-29,staging
++BAD-000990,release-validator,success,315,,2026-10-30,production
++BAD-000991,log-ingestion,success,362,,2026-10-01,staging
++BAD-000992,auth-service,failed,409,Missing environment variable: APP_CONFIG,2026-10-02,staging
++BAD-000993,customer-portal,success,456,,2026-10-03,production
++BAD-000994,analytics-api,success,503,,2026-10-04,staging
++BAD-000995,report-worker,success,550,,2026-10-05,staging
++BAD-000996,workflow-engine,success,77,,2026-10-06,production
++BAD-000997,integration-gateway,success,124,,2026-10-07,staging
++BAD-000998,release-validator,success,171,,2026-10-08,staging
++BAD-000999,log-ingestion,failed,218,Readiness probe failed: HTTP 503,2026-10-09,production
++BAD-001000,auth-service,unknown,265,,2026-10-10,staging

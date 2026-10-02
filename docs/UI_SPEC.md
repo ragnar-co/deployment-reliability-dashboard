@@ -72,7 +72,7 @@ Dashboard (/)
 | `--on-accent` | #ffffff | #14171a | ข้อความบนปุ่ม |
 **การเตือนขนาดไฟล์ (NFR-03, TC-07):** ฟอร์มมี `data-max-bytes` ตามค่า `MAX_UPLOAD_BYTES` (ไม่ hard-code 10 MB ใน JavaScript) เมื่อผู้ใช้เลือกไฟล์ที่ `file.size` เกิน JavaScript ต้องแสดงข้อความ `File is X.X MB; the maximum is 10 MB. Nothing was uploaded.` ในกล่อง `role="alert"` ทันที และปิดปุ่ม Upload ไว้จนกว่าจะเลือกไฟล์ใหม่ที่ไม่เกิน ถ้า JavaScript ปิดอยู่หรือถูกเลี่ยง server ปฏิเสธด้วย `FILE_TOO_LARGE` 413 และแสดงข้อความ `File exceeds the maximum of 10 MB.` ในกล่อง error ของหน้า (ไม่มีขนาดจริง เพราะ server หยุดอ่านทันที; CP-04 ครอบคลุมเส้นทางนี้) ตัวเลข "10 MB" ในข้อความมาจากค่าตั้งค่า ไม่ใช่ข้อความตายตัว
 
-ข้อความหลักของ UI (เจ้าของ copy): ว่าง = "No data yet. Upload a deployment-history CSV to begin."; สำเร็จ = "Imported N deployments (M failed)."; ปฏิเสธ = "Import rejected — nothing was saved." ตามด้วยรายการเหตุผล; ค่า null ของ rate/duration แสดง "–"; ปุ่ม "Upload"
+ข้อความหลักของ UI (เจ้าของ copy): ว่าง = "No data yet. Upload a deployment-history CSV to begin."; สำเร็จ = "Imported N deployments (S successful, F failed)."; ปฏิเสธ = "Import rejected — nothing was saved." ตามด้วยรายการเหตุผล; ค่า null ของ rate/duration แสดง "–"; ปุ่ม "Upload"
 โหมดสว่าง/มืดเลือกตาม `prefers-color-scheme` ของเบราว์เซอร์ (ไม่มีปุ่มสลับ)
 
 Contrast ที่คำนวณแล้ว (ข้อความเทียบกับ `--card`; ข้อความปุ่มเทียบกับ `--accent`): สว่าง bad 5.62, warn 5.43, good 5.13, accent 6.09, muted 5.92, ปุ่ม 6.09; มืด bad 5.39, warn 8.05, good 7.17, accent 6.40, muted 6.40 — ทุกค่า ≥ 4.5:1 (ปุ่มโหมดมืดต้องคำนวณใหม่เมื่อ implement เพราะ `--on-accent` ใหม่ ต้อง ≥ 4.5:1)

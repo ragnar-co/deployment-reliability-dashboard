@@ -6,7 +6,7 @@ from conftest import FIXTURE, HDR, post, rows
 def test_valid_import_and_totals(client):
     r = post(client, FIXTURE)
     assert r.status_code == 200
-    assert r.json() == {"batch_id": 1, "rows": 10, "failed_deployments": 4}
+    assert r.json() == {"batch_id": 1, "rows": 10, "successful_deployments": 6, "failed_deployments": 4}
     assert client.get("/api/services").json()["overall"] == {
         "total": 10, "successes": 6, "failures": 4, "success_rate": 60.0, "avg_success_seconds": 150.0}
 

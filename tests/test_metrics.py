@@ -38,10 +38,11 @@ def test_rounding_is_half_up(client):
     assert client.get("/api/services").json()["overall"]["success_rate"] == 0.13
 
 
-def test_average_rounding_is_half_up(client):
-    post(client, rows("A,x,success,1,,2026-07-01,staging", "B,x,success,1,,2026-07-01,staging",
-                      "C,x,success,1,,2026-07-01,staging", "D,x,success,2,,2026-07-01,staging"))
-    assert client.get("/api/services").json()["overall"]["avg_success_seconds"] == 1.3  # 1.25 -> 1.3
+def test_average_rounding_is_half_up_to_two_decimals(client):
+    # 199 x 1s + 1 x 2s = 201/200 = 1.005 s : half-up gives 1.01, banker's rounding gives 1.00
+    lines = [f"A{i},x,success,1,,2026-07-01,staging" for i in range(199)] + ["B,x,success,2,,2026-07-01,staging"]
+    post(client, rows(*lines))
+    assert client.get("/api/services").json()["overall"]["avg_success_seconds"] == 1.01
 
 
 # TST-003 / TST-021 / FR-07 / AC-06
@@ -74,7 +75,7 @@ def test_unknown_service_is_empty_not_an_error(loaded):
 # TST-010 / FR-11 / AC-10 (P1)
 def test_environment_filter(loaded):
     o = loaded.get("/api/services?environment=staging").json()["overall"]
-    assert (o["total"], o["successes"], o["failures"], o["avg_success_seconds"]) == (5, 3, 2, 83.3)
+    assert (o["total"], o["successes"], o["failures"], o["avg_success_seconds"]) == (5, 3, 2, 83.33)
     f = loaded.get("/api/failures?environment=staging&service=alpha").json()
     assert f["total"] == 1
 

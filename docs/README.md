@@ -6,6 +6,8 @@
 
 > **สถานะ (2026-10-02):** implement แล้ว T-01…T-10 และ T-13; ทำตาม Quick Start ได้จริง `python -m pytest -q` ผ่าน 65 test; Docker image ตรวจแล้ว (non-root, volume, health) T-11 (push) และ T-12 (Coolify) รอ Launch Blockers ใน DEPLOYMENT.md
 
+> **หมายเหตุ:** แดชบอร์ดนี้เป็นเครื่องมือช่วยจัดลำดับว่าควรตรวจบริการใดก่อน **ไม่ใช่การยืนยัน root cause** ข้อมูลใน CSV (วัน, ระยะเวลา, ข้อความ error) ไม่พอจะสรุปสาเหตุที่แท้จริงได้
+
 ## Quick Start
 1. `python3.12 -m venv .venv && source .venv/bin/activate` → ได้ prompt ที่มี `(.venv)`
 2. `pip install -r requirements-dev.txt` → ติดตั้งสำเร็จไม่มี error
